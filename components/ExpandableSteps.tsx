@@ -6,7 +6,6 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import Image from "next/image";
 import "./ExpandableCard.css";
 
-
 // ── Feature content renderer ──────────────────────────────────────────────────
 type ContentItem = { label: string; body: string };
 
@@ -26,82 +25,46 @@ function FeatureList({ items }: { items: ContentItem[] }) {
   );
 }
 
-// ── Card data ─────────────────────────────────────────────────────────────────
-const cards = [
+// ── Steps data ───────────────────────────────────────────────────────────────
+const steps = [
   {
-    tag: "Communication",
-    title: "Boost Communication with WhatsApp-Email Integration",
-    src: "./C1.svg",
+    tag: "Step 01",
+    title: "Consultation & Needs Assessment",
+    src: "/CO.svg",
     items: [
       {
-        label: "Faster Responses:",
-        body: " Get instant mobile alerts for quicker replies.",
-      },
-      {
-        label: "Better Team Collaboration:",
-        body: " Share files, images, and links for real-time teamwork.",
-      },
-      {
-        label: "All-in-One Communication:",
-        body: " Track key messages in one place — no more lost info.",
-      },
-      {
-        label: "Higher Engagement:",
-        body: " WhatsApp's casual style boosts open and inclusive chats.",
+        label: "Discovery:",
+        body: " We take time to understand your goals, pain points, and workflow before proposing anything.",
       },
     ],
   },
   {
-    tag: "CRM",
-    title: "Custom CRM Solutions Built Around Your Business",
-    src: "./C2.svg",
+    tag: "Step 02",
+    title: "Custom Solution Design",
+    src: "/CS.svg",
     items: [
       {
-        label: "Tailored to Fit:",
-        body: " CRM features designed to match your unique workflows.",
-      },
-      {
-        label: "Scalable Growth:",
-        body: " Adaptable systems that grow alongside your business.",
-      },
-      {
-        label: "Better Customer Insights:",
-        body: " Track interactions, sales, and support in one place.",
-      },
-      {
-        label: "Boost Productivity:",
-        body: " Automate tasks and streamline daily operations.",
+        label: "Strategy:",
+        body: " We craft a tailored automation strategy — no templates, no shortcuts — built for your exact business.",
       },
     ],
   },
   {
-    tag: "Automation",
-    title: "Empower Your Business with Tailored Automation Solutions",
-    src: "./C3.svg",
+    tag: "Step 03",
+    title: "Implementation & Integration",
+    src: "/IN.svg",
     items: [
       {
-        label: "Cost Reduction:",
-        body: " Automation minimizes labor costs and reduces human error.",
-      },
-      {
-        label: "Improved Productivity:",
-        body: " Free your team to focus on higher-value, strategic work.",
-      },
-      {
-        label: "Data-Driven Decisions:",
-        body: " Analyze data quickly and inform smarter strategies.",
-      },
-      {
-        label: "Enhanced Compliance:",
-        body: " Automated checks reduce risk of regulatory non-compliance.",
+        label: "Delivery:",
+        body: " We wire our solutions into your existing tools — Google Workspace, WhatsApp, and more.",
       },
     ],
   },
 ];
 
 // ── Component ─────────────────────────────────────────────────────────────────
-export default function ExpandableCard() {
-  const [active, setActive] = useState<(typeof cards)[number] | null>(null);
+export default function ExpandableSteps() {
+  const [active, setActive] = useState<(typeof steps)[number] | null>(null);
   const id = useId();
   const ref = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
 
@@ -145,7 +108,6 @@ export default function ExpandableCard() {
               exit={{ opacity: 0, scale: 0.96, y: 16 }}
               transition={{ type: "spring", stiffness: 380, damping: 32 }}
             >
-              {/* close — sits in top-right of whole modal */}
               <button
                 className="ec-close"
                 onClick={() => setActive(null)}
@@ -193,34 +155,6 @@ export default function ExpandableCard() {
                 >
                   <FeatureList items={active.items} />
                 </motion.div>
-
-                {/* CTA footer */}
-                <div className="ec-modal-cta">
-                  <p className="ec-modal-cta-body">
-                    Want this for your business? Let&apos;s talk about the
-                    possibilities.
-                  </p>
-                  <a
-                    className="ec-modal-cta-btn"
-                    href="https://calendar.app.google/tQGZDNw8JgBJekHeA"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Book a Free Call
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -229,30 +163,27 @@ export default function ExpandableCard() {
 
       {/* ── Card Grid ── */}
       <div className="ec-grid">
-        {cards.map((card) => (
+        {steps.map((step) => (
           <motion.div
-            key={card.title}
-            layoutId={`card-${card.title}-${id}`}
+            key={step.title}
+            layoutId={`card-${step.title}-${id}`}
             className="ec-tile"
-            onClick={() => setActive(card)}
+            onClick={() => setActive(step)}
             whileTap={{ scale: 0.98 }}
           >
-            {/* image */}
             <motion.div
-              layoutId={`img-${card.title}-${id}`}
+              layoutId={`img-${step.title}-${id}`}
               className="ec-img-wrap"
             >
-              <Image src={card.src} alt={card.title} width={320} height={220} />
+              <Image src={step.src} alt={step.title} width={320} height={220} />
             </motion.div>
-
-            {/* body */}
             <div className="ec-body">
-              <div className="ec-tag">{card.tag}</div>
+              <div className="ec-tag">{step.tag}</div>
               <motion.h3
-                layoutId={`title-${card.title}-${id}`}
+                layoutId={`title-${step.title}-${id}`}
                 className="ec-title"
               >
-                {card.title}
+                {step.title}
               </motion.h3>
               <div className="ec-hint">
                 <svg
@@ -270,7 +201,6 @@ export default function ExpandableCard() {
                 </svg>
                 Click to learn more
               </div>
-              {/* hover arrow */}
               <span className="ec-arrow">
                 <svg
                   width="14"

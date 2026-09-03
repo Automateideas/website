@@ -1,5 +1,6 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import "./styles.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
@@ -90,8 +91,8 @@ export default function RootLayout({
         <meta name="geo.position" content="28.6897;77.4107" />
       </head>
       <body
-        className={`${roboto.className} h-screen w-full bg-[--color-background] font-[--font-primary] text-[--color-foreground] antialiased dark:bg-[--color-background-dark]`}
-        data-new-gr-c-s-check-loaded="14.1275"
+        className={`${roboto.className} h-screen w-full bg-[--color-background] font-[--font-primary] text-[--color-foreground] antialiased`}
+        data-new-gr-c-s-check-loaded="14.1321.0"
       >
         <NavBar />
         {children}

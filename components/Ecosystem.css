@@ -1,0 +1,134 @@
+/* ── Ecosystem section ──
+   Self-contained: scoped to .ecs-* so it never collides with globals. */
+
+.ecs-section {
+  padding: 6rem 7vw;
+  background: #ffffff;
+  border-top: 1px solid var(--border, #e8e6e0);
+  border-bottom: 1px solid var(--border, #e8e6e0);
+  overflow: hidden;
+}
+
+.ecs-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .ecs-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* ── Copy ── */
+.ecs-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent, #e8390e);
+  margin-bottom: 1.25rem;
+}
+.ecs-eyebrow-bar {
+  width: 1.6rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ink, #0f0f0e), var(--accent, #e8390e));
+}
+.ecs-heading {
+  font-family: var(--font-display, "Syne", sans-serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+.ecs-lead {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #3a3832;
+  margin-bottom: 2rem;
+}
+.ecs-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ecs-points li {
+  position: relative;
+  padding-left: 1.9rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #2b2a26;
+}
+.ecs-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.32rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ink, #0f0f0e), var(--accent, #e8390e));
+}
+
+/* ── Wheel ── */
+.ecs-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ecs-wheel {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+/* ── Rotating elements ── */
+.ecs-spoke {
+  transform-origin: 320px 320px;
+  animation: ecs-spin-slow 24s linear infinite;
+}
+.ecs-ring-spin {
+  transform-origin: 320px 320px;
+  animation: ecs-spin-slower 40s linear infinite;
+}
+.ecs-pulse-spin {
+  transform-origin: 320px 320px;
+  animation: ecs-spin 18s linear infinite;
+}
+.ecs-pulse-dot {
+  animation: ecs-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ecs-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ecs-spin-slow {
+  to { transform: rotate(-360deg); }
+}
+@keyframes ecs-spin-slower {
+  to { transform: rotate(360deg); }
+}
+@keyframes ecs-pulse {
+  0%, 100% { opacity: 1; r: 6; }
+  50% { opacity: 0.55; r: 3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecs-spoke,
+  .ecs-ring-spin,
+  .ecs-pulse-spin,
+  .ecs-pulse-dot {
+    animation: none;
+  }
+}
