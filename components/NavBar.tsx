@@ -52,7 +52,7 @@ function NavBar() {
 
   return (
     <>
-      <header className={`nb-header${scrolled ? "nb-scrolled" : ""}`}>
+      <header className={`nb-header${scrolled ? " nb-scrolled" : ""}`}>
         <div className="nb-inner">
           {/* ── Logo ── */}
           <Link href="/" className="nb-logo">

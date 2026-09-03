@@ -63,18 +63,15 @@ function EcosystemWheel() {
       </g>
 
       <circle cx="320" cy="320" r="120" fill="#fff" filter="url(#ecs-shadow-lg)" />
-      <text x="320" y="286" textAnchor="middle" fontSize="34" fontWeight="800" letterSpacing="-0.5" fill="#111827">
-        AUTOMATE<tspan fill="#e8390e">IDEAS</tspan>
+      <text x="320" y="286" textAnchor="middle" fontSize="30" fontWeight="800" letterSpacing="0.5" fill="#111827">
+        AUTOMATE
       </text>
-      <text x="320" y="308" textAnchor="middle" fontSize="12" fontWeight="700" letterSpacing="2.2" fill="#9CA3AF">
+      <text x="320" y="320" textAnchor="middle" fontSize="30" fontWeight="800" letterSpacing="1" fill="#e8390e">
+        IDEAS
+      </text>
+      <rect x="290" y="334" width="60" height="2.5" rx="1.25" fill="url(#ecs-grad)" />
+      <text x="320" y="360" textAnchor="middle" fontSize="11" fontWeight="700" letterSpacing="2.2" fill="#9CA3AF">
         ONE ECOSYSTEM
-      </text>
-      <rect x="290" y="320" width="60" height="2.5" rx="1.25" fill="url(#ecs-grad)" />
-      <text x="320" y="344" textAnchor="middle" fontSize="15" fontWeight="800" fill="#0f0f0e">
-        One ecosystem.
-      </text>
-      <text x="320" y="364" textAnchor="middle" fontSize="15" fontWeight="800" fill="#0f0f0e">
-        Endless growth.
       </text>
 
       {/* ── Nodes ── */}

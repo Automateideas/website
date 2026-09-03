@@ -1,6 +1,12 @@
 "use client";
 
-import { aboutStats, coreValues, teamMembers, techStack } from "@/lib/site-data";
+import Image from "next/image";
+import {
+  aboutStats,
+  coreValues,
+  teamMembers,
+  techStack,
+} from "@/lib/site-data";
 
 export default function AboutSection() {
   return (
@@ -40,17 +46,16 @@ export default function AboutSection() {
             <p>
               With deep expertise in Google Workspace technologies {"\u2014"}
               including Apps Script, AppSheet, and third-party tools like
-              WhatsApp {"\u2014"} we've helped clients across various
-              industries transform workflows, reduce costs, and regain focus
-              on what truly matters.
+              WhatsApp {"\u2014"} we've helped clients across various industries
+              transform workflows, reduce costs, and regain focus on what truly
+              matters.
             </p>
           </div>
           <div className="ab-mission reveal">
             <div className="ab-mission-label">Our Mission</div>
             <p>
               To empower businesses with smart automation solutions that save
-              time, eliminate errors, and free teams to do more impactful
-              work.
+              time, eliminate errors, and free teams to do more impactful work.
             </p>
           </div>
           <div className="ab-stats reveal">
@@ -110,8 +115,8 @@ export default function AboutSection() {
             </div>
             <h2 className="ab-team-h2">Meet Our Team</h2>
             <p className="ab-team-sub">
-              Specialists who genuinely care about your workflows {"\u2014"}{" "}
-              and know exactly how to fix them.
+              Specialists who genuinely care about your workflows {"\u2014"} and
+              know exactly how to fix them.
             </p>
           </div>
           <div className="ab-team-count reveal" aria-hidden="true">
@@ -122,9 +127,19 @@ export default function AboutSection() {
           {teamMembers.map((member, i) => (
             <div key={i} className={`ab-member-card reveal`}>
               <div className="ab-member-photo-wrap">
-                <div className="ab-member-avatar-placeholder">
-                  {member.initials}
-                </div>
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    className="ab-member-photo"
+                    width={10000}
+                    height={10000}
+                  />
+                ) : (
+                  <div className="ab-member-avatar-placeholder">
+                    {member.initials}
+                  </div>
+                )}
                 <div className="ab-member-role-badge">{member.role}</div>
               </div>
               <div className="ab-member-info">

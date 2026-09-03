@@ -16,8 +16,7 @@ import {
   LaptopMinimalCheck,
 } from "lucide-react";
 
-export const BOOK_CALL_URL =
-  "https://calendar.app.google/tQGZDNw8JgBJekHeA";
+export const BOOK_CALL_URL = "https://calendar.app.google/tQGZDNw8JgBJekHeA";
 
 // ── Services Data ─────────────────────────────────────────────────────────────
 export const servicesData = [
@@ -376,6 +375,7 @@ export const teamMembers = [
     name: "Amit Kumar",
     role: "Founder & Lead Developer",
     initials: "AK",
+    image: "/team/amit.jpg",
     expertise: [
       "React JS",
       "TypeScript",
@@ -385,22 +385,17 @@ export const teamMembers = [
     ],
   },
   {
-    name: "Maria Santos",
-    role: "Automation Engineer",
-    initials: "MS",
-    expertise: ["AppSheet", "Google Sheets", "Data Pipelines"],
-  },
-  {
-    name: "Daniel Osei",
-    role: "Integration Specialist",
-    initials: "DO",
-    expertise: ["WhatsApp API", "Gmail Automation", "Looker Studio"],
-  },
-  {
-    name: "Priya Nair",
-    role: "Client Success Manager",
-    initials: "PN",
-    expertise: ["Project Management", "Training", "Google Sites"],
+    name: "Vansh Prajapati",
+    role: "Video Editor & Content Creator",
+    initials: "VP",
+    image: "/team/vansh-prajapati.png",
+    expertise: [
+      "Video Editing",
+      "Content Creation",
+      "Social Media Management",
+      "Adobe Premiere Pro",
+      "Capcut",
+    ],
   },
 ];
 

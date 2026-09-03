@@ -4,11 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  companySizes,
-  contactItems,
-  interestedOptions,
-} from "@/lib/site-data";
+import { companySizes, contactItems, interestedOptions } from "@/lib/site-data";
 
 type AlertType = "success" | "error" | "warning" | "info";
 interface AlertItem {
@@ -97,10 +93,7 @@ export default function ContactSection() {
             "warning",
             "Too many requests. Please wait a moment and try again.",
           );
-        } else if (
-          err.response.status === 400 &&
-          err.response.data?.error
-        ) {
+        } else if (err.response.status === 400 && err.response.data?.error) {
           addAlert("error", err.response.data.error);
         } else {
           addAlert("error", "Failed to send. Please try again later.");
@@ -139,8 +132,8 @@ export default function ContactSection() {
         <div className="ct-body">
           <div className="ct-info reveal">
             <p className="ct-info-lead">
-              Reach out through any channel below, or fill in the form and
-              we'll respond within one business day.
+              Reach out through any channel below, or fill in the form and we'll
+              respond within one business day.
             </p>
             <div className="ct-contact-list">
               {contactItems.map((item) => (
@@ -328,7 +321,7 @@ export default function ContactSection() {
                   <textarea
                     id="ct-message"
                     className="ct-textarea"
-                    placeholder="Tell us about your project or challenge\u2026"
+                    placeholder="Tell us about your project or challenge…"
                     required
                     rows={4}
                     value={formData.message}
