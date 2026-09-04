@@ -375,7 +375,7 @@ export const teamMembers = [
     name: "Amit Kumar",
     role: "Founder & Lead Developer",
     initials: "AK",
-    image: "/team/amit.jpg",
+    image: "/team/amit.png",
     expertise: [
       "React JS",
       "TypeScript",
@@ -388,7 +388,7 @@ export const teamMembers = [
     name: "Vansh Prajapati",
     role: "Video Editor & Content Creator",
     initials: "VP",
-    image: "/team/vansh-prajapati.png",
+    image: "/team/vansh.jpeg",
     expertise: [
       "Video Editing",
       "Content Creation",
