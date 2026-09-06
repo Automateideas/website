@@ -14,6 +14,8 @@ import {
   UsersRound,
   Star,
   LaptopMinimalCheck,
+  Building2,
+  type LucideIcon,
 } from "lucide-react";
 
 export const BOOK_CALL_URL = "https://calendar.app.google/tQGZDNw8JgBJekHeA";
@@ -324,6 +326,248 @@ export const customChips = [
   "Google Sheets + WhatsApp",
   "Custom Web Forms",
   "Custom Solutions",
+];
+
+// ── Meta WhatsApp Business API Plans ──────────────────────────────────────────
+export type MetaPlan = {
+  id: string;
+  name: string;
+  title: string;
+  popular: boolean;
+  badge: string | null;
+  icon: LucideIcon;
+  iconClass: string;
+  btnClass: string;
+  btnLabel: string;
+  yearly: number | null;
+  monthly: number | null;
+  features: string[];
+};
+
+export type CompareRow = { label: string; values: Array<string | boolean> };
+export type CompareGroup = { group: string; rows: CompareRow[] };
+
+export const metaWhatsAppPlans: MetaPlan[] = [
+  {
+    id: "meta-basic",
+    name: "Basic Plan",
+    title: "Perfect for small businesses starting their WhatsApp journey",
+    popular: false,
+    badge: null,
+    icon: Smartphone,
+    iconClass: "mw-icon-blue",
+    btnClass: "mw-btn-outline",
+    btnLabel: "Start Basic Plan",
+    yearly: 12000,
+    monthly: 1250,
+    features: [
+      "WhatsApp Business API dashboard",
+      "Basic drag-and-drop chatbot builder",
+      "Developer-friendly API & webhooks",
+      "Bulk template message sending",
+      "Template creation & approval tracking",
+      "Google Sheets integration (with API)",
+      "Message scheduler",
+      "Message & campaign reports with filters",
+      "Single-send: template, text, media, interactive",
+      "Visual flow builder saving responses to Sheets",
+      "Contact filters, labels, attributes & block contact",
+      "WhatsApp chat link generator",
+      "No charges over Meta messaging fees",
+    ],
+  },
+  {
+    id: "meta-standard",
+    name: "Standard Plan",
+    title: "Enhanced features for growing businesses & team collaboration",
+    popular: true,
+    badge: "Most Popular",
+    icon: UsersRound,
+    iconClass: "mw-icon-green",
+    btnClass: "mw-btn-filled",
+    btnLabel: "Start Standard Plan",
+    yearly: 24000,
+    monthly: 2500,
+    features: [
+      "Everything in Basic Plan",
+      "Team Inbox system with a single agent",
+      "Contact management with labels & attributes",
+      "Up to 5 chatbot automations",
+      "OpenAI node add-on @ \u20B912,000/year",
+      "More chatbots available on request",
+    ],
+  },
+  {
+    id: "meta-advanced",
+    name: "Advanced Plan",
+    title: "Complete solution with advanced collaboration & AI automation",
+    popular: false,
+    badge: null,
+    icon: Crown,
+    iconClass: "mw-icon-gold",
+    btnClass: "mw-btn-dark",
+    btnLabel: "Start Advanced Plan",
+    yearly: 36000,
+    monthly: 3750,
+    features: [
+      "Everything in Standard Plan",
+      "Team Inbox with 10 agents",
+      "Extra agents @ \u20B9600 per agent / month",
+      "Dialogflow & ChatGPT integration",
+      "Automation rules in team inbox",
+      "Department creation in inbox system",
+      "Conditional webhooks under team inbox",
+      "WhatsApp Business API calling",
+      "Up to 10 chatbot automations",
+      "OpenAI node add-on @ \u20B912,000/year",
+    ],
+  },
+  {
+    id: "meta-enterprise",
+    name: "Enterprise Plan",
+    title: "Tailored solutions for large-scale operations",
+    popular: false,
+    badge: "Enterprise",
+    icon: Building2,
+    iconClass: "mw-icon-ink",
+    btnClass: "mw-btn-outline",
+    btnLabel: "Contact Us",
+    yearly: null,
+    monthly: null,
+    features: [
+      "Everything in Advanced Plan",
+      "Custom integrations & workflows",
+      "Dedicated support & onboarding",
+      "Volume pricing on request",
+    ],
+  },
+];
+
+export const metaWhatsAppCompare: CompareGroup[] = [
+  {
+    group: "Core Platform Access",
+    rows: [
+      {
+        label: "WhatsApp Business Dashboard Access",
+        values: [true, true, true],
+      },
+      { label: "Basic Chatbot", values: [true, true, true] },
+      {
+        label: "Template Message Creation",
+        values: ["Unlimited", "Unlimited", "Unlimited"],
+      },
+      {
+        label: "Bulk Messaging System",
+        values: ["Up to 10,000/month", "Up to 50,000/month", "Unlimited"],
+      },
+      {
+        label: "API & Webhook Integration",
+        values: ["Full API Access", "Full API Access", "Full API Access"],
+      },
+    ],
+  },
+  {
+    group: "Messaging & Communication",
+    rows: [
+      {
+        label: "Single Message Sending",
+        values: ["All Types", "All Types", "All Types"],
+      },
+      {
+        label: "Interactive Message Types",
+        values: ["All Formats", "All Formats", "All Formats"],
+      },
+      {
+        label: "Media & Document Sharing",
+        values: ["Unlimited", "Unlimited", "Unlimited"],
+      },
+      { label: "Message Scheduling", values: [true, true, true] },
+      {
+        label: "Broadcast Lists",
+        values: ["Up to 10 Lists", "Unlimited Lists", "Unlimited Lists"],
+      },
+    ],
+  },
+  {
+    group: "Contact & Customer Management",
+    rows: [
+      {
+        label: "Contact Database",
+        values: ["Up to 10,000", "Up to 50,000", "Unlimited"],
+      },
+      { label: "Contact Labels & Tags", values: [true, true, true] },
+      { label: "Contact Filtering", values: [true, true, true] },
+      {
+        label: "Conversation History",
+        values: ["90 Days", "1 Year", "Unlimited"],
+      },
+      {
+        label: "Customer Analytics",
+        values: ["Basic Reports", "Basic Reports", "Detailed Analytics"],
+      },
+    ],
+  },
+  {
+    group: "Automation & Workflows",
+    rows: [
+      { label: "Flow Builder", values: [true, true, true] },
+      {
+        label: "Chatbot Automations",
+        values: ["Unlimited", "Max 5", "Max 10"],
+      },
+      {
+        label: "OpenAI Node (add-on)",
+        values: [
+          false,
+          "\u20B912,000/yr or \u20B91,250/mo",
+          "\u20B912,000/yr or \u20B91,250/mo",
+        ],
+      },
+    ],
+  },
+  {
+    group: "Analytics & Reporting",
+    rows: [
+      { label: "Message Reports", values: [true, true, true] },
+      { label: "Campaign Analytics", values: [true, true, true] },
+      { label: "Real-time Dashboard", values: [true, true, true] },
+      { label: "Export Capabilities", values: ["CSV", "CSV", "CSV"] },
+    ],
+  },
+  {
+    group: "Integrations & Extensions",
+    rows: [
+      { label: "Google Sheets Integration", values: [true, true, true] },
+      { label: "Business Software Integration", values: [true, true, true] },
+      {
+        label: "Zapier & Automation",
+        values: ["Basic Zapier", "Full Zapier Access", "Full Zapier Access"],
+      },
+      { label: "Custom API Access", values: [false, true, true] },
+    ],
+  },
+  {
+    group: "Team & Collaboration",
+    rows: [{ label: "Multi-User Access", values: ["1 User", "2 Users", "10 Users"] }],
+  },
+  {
+    group: "Advanced Features",
+    rows: [
+      { label: "Advanced Chatbot", values: [false, false, true] },
+      { label: "Custom Webhooks", values: [false, false, true] },
+      {
+        label: "Priority Support",
+        values: ["Email Support", "Chat + Email", "Priority Support"],
+      },
+    ],
+  },
+];
+
+export const metaWhatsAppIncludes = [
+  "GST extra",
+  "No setup fees",
+  "Cancel anytime",
+  "ChatGPT add-on available",
 ];
 
 // ── About Data ────────────────────────────────────────────────────────────────

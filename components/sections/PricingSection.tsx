@@ -2,6 +2,7 @@
 
 import { Check, MessageCircle } from "lucide-react";
 import { customChips, whatsappPlans } from "@/lib/site-data";
+import MetaWhatsAppPricing from "@/components/sections/MetaWhatsAppPricing";
 
 export default function PricingSection() {
   return (
@@ -16,8 +17,8 @@ export default function PricingSection() {
             Simple, Honest <em>Pricing</em>
           </h1>
           <p className="pr-hero-sub">
-            Every project is unique. Our pricing reflects your requirements
-            and complexity {"\u2014"} no hidden fees, no surprises.
+            Every project is unique. Our pricing reflects your requirements and
+            complexity {"\u2014"} no hidden fees, no surprises.
           </p>
         </div>
       </div>
@@ -31,9 +32,9 @@ export default function PricingSection() {
           <div>
             <h2 className="pr-custom-h2">Custom Project Pricing</h2>
             <p className="pr-custom-body">
-              Whether it's a small feature or a full-scale application, we
-              offer flexible pricing tailored to your requirements. Share your
-              idea and we'll provide a quote based on scope, timeline, and
+              Whether it's a small feature or a full-scale application, we offer
+              flexible pricing tailored to your requirements. Share your idea
+              and we'll provide a quote based on scope, timeline, and
               complexity.
             </p>
             <div className="pr-chips">
@@ -56,6 +57,8 @@ export default function PricingSection() {
         </div>
       </section>
 
+      <MetaWhatsAppPricing />
+
       <section className="pr-plans">
         <div className="pr-plans-header">
           <div className="reveal">
@@ -66,7 +69,7 @@ export default function PricingSection() {
               <span className="pr-section-eyebrow-bar pr-bar-gold" />
               WhatsApp API Platform
             </div>
-            <h2 className="pr-plans-h2">WhatsApp API Pricing</h2>
+            <h2 className="pr-plans-h2">Unofficial WhatsApp API Pricing</h2>
           </div>
           <p className="pr-plans-sub reveal">
             Fixed pricing for our WhatsApp API platform with enterprise-grade
@@ -131,10 +134,7 @@ export default function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#contact"
-                  className={`pr-plan-btn ${plan.btnClass}`}
-                >
+                <a href="#contact" className={`pr-plan-btn ${plan.btnClass}`}>
                   {plan.btnLabel}
                 </a>
               </div>

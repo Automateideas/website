@@ -13,6 +13,7 @@ const BOOK_CALL_URL = "https://calendar.app.google/tQGZDNw8JgBJekHeA";
 const navMenu = [
   { label: "Home", href: "/" },
   { label: "Services", href: "#services" },
+  { label: "WhatsApp", href: "#meta-wa-pricing" },
   { label: "Pricing", href: "#pricing" },
   { label: "About Us", href: "#about" },
   { label: "Contact Us", href: "#contact" },
