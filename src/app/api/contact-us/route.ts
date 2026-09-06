@@ -7,14 +7,14 @@ const PHONE_RE = /^[+]?[\d\s().-]{7,20}$/;
 const MAX_FIELD_LENGTH = 2000;
 
 interface ContactPayload {
-  name?: unknown;
-  contactNo?: unknown;
-  email?: unknown;
-  designation?: unknown;
-  companyName?: unknown;
-  companySize?: unknown;
-  interestedIn?: unknown;
-  message?: unknown;
+  name?: string;
+  contactNo?: string;
+  email?: string;
+  designation?: string;
+  companyName?: string;
+  companySize?: string;
+  interestedIn?: string;
+  message?: string;
 }
 
 function asTrimmedString(value: unknown): string {

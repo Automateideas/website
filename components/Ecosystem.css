@@ -20,6 +20,10 @@
 @media (max-width: 900px) {
   .ecs-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 }
+@media (max-width: 640px) {
+  .ecs-section { padding: 3.5rem 1.5rem; }
+  .ecs-visual { order: -1; }
+}
 
 /* ── Copy ── */
 .ecs-eyebrow {

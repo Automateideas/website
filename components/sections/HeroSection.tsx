@@ -7,7 +7,7 @@ import { BOOK_CALL_URL, homeStats, marqueeItems } from "@/lib/site-data";
 export default function HeroSection() {
   return (
     <>
-      <section className="hero">
+      <section id="hero" className="hero">
         <div>
           <div className="hero-badge">
             <div className="hero-badge-dot" />

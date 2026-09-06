@@ -18,9 +18,9 @@ export default function ServicesSection() {
             <span className="svc-eyebrow-bar" />
             What We Do
           </div>
-          <h1 className="svc-hero-h1">
+          <h2 className="svc-hero-h1">
             Our <em>Services</em>
-          </h1>
+          </h2>
           <p className="svc-hero-sub">
             From Google Workspace automation and WhatsApp integration to
             digital marketing and security {"\u2014"} we build tools, systems,

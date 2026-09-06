@@ -548,7 +548,9 @@ export const metaWhatsAppCompare: CompareGroup[] = [
   },
   {
     group: "Team & Collaboration",
-    rows: [{ label: "Multi-User Access", values: ["1 User", "2 Users", "10 Users"] }],
+    rows: [
+      { label: "Multi-User Access", values: ["1 User", "2 Users", "10 Users"] },
+    ],
   },
   {
     group: "Advanced Features",
@@ -664,15 +666,15 @@ export const interestedOptions = [
 export const contactItems = [
   {
     label: "Call Us",
-    value: "+91 7210756879",
+    value: "+91 9625598603",
     icon: "/C.gif",
-    href: "tel:+917210756879",
+    href: "tel:+919625598603",
   },
   {
     label: "WhatsApp",
-    value: "+91 7210756879",
+    value: "+91 9625598603",
     icon: "/W.gif",
-    href: "https://wa.me/917210756879",
+    href: "https://wa.me/919625598603?text=I%27m%20interested%20in%20your%20services",
   },
   {
     label: "Email Us",
@@ -689,42 +691,56 @@ export const testimonials = [
       "Stockouts and order mistakes were draining us. With Automate Ideas' system, everything is now tracked live on one dashboard. Our error rate has dropped massively.",
     name: "Nitin Verma",
     title: "Vercha Jewels",
-    image: "/Vercha.jpeg",
+    image: "/testimonial/Vercha.jpeg",
   },
   {
     quote:
       "Automate Ideas helped us cut through the chaos of handling leads, tasks, and payments manually. The Google Workspace + WhatsApp integration alone saves us several hours a week.",
     name: "Narendra Vaid",
     title: "Copier World",
-    image: "/copier-world.jpg",
+    image: "/testimonial/copier-world.jpg",
   },
   {
     quote:
       "Payroll, leave tracking, compliance \u2014 all of it used to eat up time we didn't have. Automate Ideas built a system that runs these processes automatically.",
     name: "Chaitanya Agrawal",
     title: "Cranex Limited",
-    image: "/cranex.webp",
+    image: "/testimonial/cranex.webp",
   },
   {
     quote:
       "Month-end used to be chaos with invoicing and GST. Now, everything flows seamlessly with Automate Ideas' automation. Reports are ready on time.",
     name: "Saurabh Khandelwal",
     title: "Dhanvi Diamonds",
-    image: "/dhanvi.png",
+    image: "/testimonial/dhanvi.png",
   },
   {
     quote:
       "Our sales process finally feels modern. From order forms to receipts, every step is automated and linked with WhatsApp and Google Workspace.",
     name: "Rahul Bhagat",
     title: "Bhagat Halwai",
-    image: "/Bhagat_Halwai.webp",
+    image: "/testimonial/Bhagat_Halwai.webp",
   },
   {
     quote:
       "Invoicing was a nightmare before \u2014 slow, error-prone, and manual. Now PDFs are generated and emailed instantly. We save hours every week.",
     name: "Raghbir Singh",
     title: "RAGHBIR ERECTORS & FABRICATORS",
-    image: "/raghbir.png",
+    image: "/testimonial/Raghbir.png",
+  },
+  {
+    quote:
+      "Design a KRA and KPI system for our employees, and Automate Ideas built a Google Workspace system that tracks everything automatically. It's a game-changer.",
+    name: "Aishwarya Maheshwari",
+    title: "Convenience Tour & Travels",
+    image: "/testimonial/CTT.png",
+  },
+  {
+    quote:
+      "Automate Ideas helped us streamline our placement services. From lead management to candidate tracking, everything is now automated and efficient.",
+    name: "Dipak Kumar Singh",
+    title: "Samriddhi Mantra Placement Services",
+    image: "/testimonial/SMPS.png",
   },
 ];
 

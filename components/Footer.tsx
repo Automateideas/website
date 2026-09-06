@@ -8,28 +8,32 @@ import "./Footer.css";
 const socialLinks = [
   {
     href: "https://www.facebook.com/profile.php?id=61575991143624",
-    src: "/facebook.svg",
+    src: "/logo/facebook.svg",
     alt: "Facebook",
   },
   {
     href: "https://www.instagram.com/automate_ideas",
-    src: "/instagram.svg",
+    src: "/logo/instagram.svg",
     alt: "Instagram",
   },
   {
     href: "https://www.linkedin.com/company/automate-ideas/",
-    src: "/linkedin.svg",
+    src: "/logo/linkedin.svg",
     alt: "LinkedIn",
   },
-  { href: "https://x.com/automateideas", src: "/x.svg", alt: "X (Twitter)" },
+  {
+    href: "https://x.com/automateideas",
+    src: "/logo/x_dark.svg",
+    alt: "X (Twitter)",
+  },
   {
     href: "https://www.youtube.com/@AutomateIdeas",
-    src: "/youtube.svg",
+    src: "/logo/youtube.svg",
     alt: "YouTube",
   },
   {
-    href: "https://wa.me/917210756879?text=I%27m%20interested%20in%20your%20services",
-    src: "/whatsapp.svg",
+    href: "https://wa.me/919625598603?text=I%27m%20interested%20in%20your%20services",
+    src: "/logo/whatsapp.svg",
     alt: "WhatsApp",
   },
 ];
@@ -49,10 +53,35 @@ const services = [
   "Custom Web Apps",
 ];
 
+const contactPoints = [
+  { label: "Email us", value: "amit23kumar04@gmail.com", icon: "✉" },
+  { label: "Call us", value: "+91 96255 98603", icon: "✆" },
+];
+
 // ── Component ─────────────────────────────────────────────────────────────────
 function Footer() {
   return (
     <footer className="ft-footer">
+      {/* ── CTA band ── */}
+      <div className="ft-cta">
+        <div className="ft-cta-inner">
+          <div>
+            <div className="ft-cta-eyebrow">Let's build together</div>
+            <h2 className="ft-cta-title">
+              Ready to automate your <em>business?</em>
+            </h2>
+          </div>
+          <div className="ft-cta-actions">
+            <a className="ft-cta-btn ft-cta-btn-primary" href="#contact">
+              Get a Free Audit
+            </a>
+            <a className="ft-cta-btn ft-cta-btn-ghost" href="https://wa.me/919625598603" target="_blank" rel="noopener noreferrer">
+              Talk to Us
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* ── Top grid ── */}
       <div className="ft-top">
         {/* Brand */}
@@ -61,11 +90,10 @@ function Footer() {
             <Image
               src="/Logo.png"
               alt="Automate Ideas"
-              width={34}
-              height={34}
+              width={38}
+              height={38}
               className="ft-logo-img"
             />
-            {/* DM Serif Display + italic accent — mirrors NavBar logo */}
             <span className="ft-logo-text">
               Automate <em>Ideas</em>
             </span>
@@ -77,6 +105,18 @@ function Footer() {
             and boosting productivity.
           </p>
 
+          <div className="ft-contact">
+            {contactPoints.map((cp) => (
+              <div className="ft-contact-row" key={cp.label}>
+                <span className="ft-contact-icon" aria-hidden="true">{cp.icon}</span>
+                <div>
+                  <div className="ft-contact-label">{cp.label}</div>
+                  <div className="ft-contact-value">{cp.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="ft-socials">
             {socialLinks.map(({ href, src, alt }) => (
               <Link
@@ -84,10 +124,14 @@ function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ft-social-link"
+                className={
+                  src === "/x.svg"
+                    ? "ft-social-link ft-social-link-x"
+                    : "ft-social-link"
+                }
                 aria-label={alt}
               >
-                <Image src={src} width={16} height={16} alt={alt} />
+                <Image src={src} width={22} height={22} alt={alt} />
               </Link>
             ))}
           </div>
@@ -138,10 +182,10 @@ function Footer() {
           <Link href="/terms" className="ft-legal-link">
             Terms of Use
           </Link>
-        </div>
-
-        <div className="ft-made">
-          Built with <span>♥</span> in India
+          <span className="ft-copy-dot" />
+          <div className="ft-made">
+            Built with <span>♥</span> in India
+          </div>
         </div>
       </div>
     </footer>

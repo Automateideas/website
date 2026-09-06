@@ -115,11 +115,11 @@ export default function ContactSection() {
               <span className="ct-eyebrow-bar" />
               Let's Talk
             </div>
-            <h1 className="ct-hero-h1">
+            <h2 className="ct-hero-h1">
               Get in <em>Touch</em>
               <br />
               with Us
-            </h1>
+            </h2>
             <p className="ct-hero-sub">
               Ready to streamline your business with Google Workspace
               automation? Contact us for a free consultation {"\u2014"} we'll
@@ -214,6 +214,7 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={set("email")}
+                    suppressHydrationWarning
                   />
                 </div>
                 <div className="ct-field">

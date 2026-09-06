@@ -2,7 +2,6 @@ import { PhoneCall } from "lucide-react";
 import Link from "next/link";
 import "./EnhancedCallButton.css";
 
-
 export function EnhancedCallButton() {
   return (
     <>
@@ -14,9 +13,9 @@ export function EnhancedCallButton() {
 
           {/* Button */}
           <Link
-            href="tel:+917210756879"
+            href="tel:+919625598603"
             className="fcb-btn"
-            aria-label="Call +91 7210756879"
+            aria-label="Call +91 9625598603"
             title="Call us"
           >
             <PhoneCall />

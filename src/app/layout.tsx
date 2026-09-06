@@ -1,3 +1,4 @@
+import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import "./styles.css";
@@ -6,12 +7,127 @@ import Footer from "@/components/Footer";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "700"],
   style: ["normal", "italic"],
   display: "swap",
 });
+
+const SITE_URL = "https://automateideas.in";
+const SITE_NAME = "Automate Ideas";
+
+const socials = [
+  "https://www.facebook.com/profile.php?id=61575991143624",
+  "https://www.instagram.com/automate_ideas",
+  "https://www.linkedin.com/company/automate-ideas/",
+  "https://x.com/automateideas",
+  "https://www.youtube.com/@AutomateIdeas",
+];
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: "Business Automation Services | Automate Ideas",
+  description:
+    "Automate your business processes with our expert solutions. From Google Sheets automation to CRM and WhatsApp, we streamline your workflows.",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  category: "business services",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: SITE_NAME,
+    title: "Business Automation Services | Automate Ideas",
+    description:
+      "Transform your business with our comprehensive automation services.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Automate Ideas - Business Automation Services",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Business Automation Services | Automate Ideas",
+    description:
+      "Transform your business with our comprehensive automation services.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0f0f0e",
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      email: "amit23kumar04@gmail.com",
+      telephone: "+919625598603",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/Logo.png` },
+      sameAs: socials,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Nandgram, Ghaziabad",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#service`,
+      name: `${SITE_NAME} - Business Automation Agency`,
+      url: SITE_URL,
+      image: `${SITE_URL}/og-image.jpg`,
+      description:
+        "Business automation, Google Workspace & Apps Script, WhatsApp Business API, and workflow automation services.",
+      telephone: "+919625598603",
+      email: "amit23kumar04@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Nandgram, Ghaziabad",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
+      },
+      areaServed: "IN",
+      priceRange: "$$",
+    },
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -20,79 +136,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <head>
-        <title>Business Automation Services | Automate Ideas</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Automate your business processes with our expert solutions. From Google Sheets automation to CRM and WhatsApp, we streamline your workflows."
-        />
-        <meta
-          name="keywords"
-          content="business automation, workflow automation, process optimization, business efficiency, automation services, automate ideas, digital transformation, Whatsapp automation, CRM automation, marketing automation, sales automation, customer service automation, Business process automation, Automate business tasks, Automate workflows, Automate operations, Automate business processes, AutomateBusiness, workflow automation solutions, Automate business solutions, Whatsapp automation services, CRM automation tools, Marketing automation software, Sales automation solutions, Customer service automation tools, Google Sheets automation, spreadsheet automation, automate Google Sheets, business spreadsheet automation, custom Google Sheets solutions, Google Sheets workflow automation, Sheets API integration, automate Excel to Google Sheets, automated reporting with Google Sheets, Google Sheets data integration"
-        />
-        <meta content="yes" name="apple-mobile-web-app-capable" />
-        <meta content="IE=edge" httpEquiv="x-ua-compatible" />
-        <meta
-          property="og:title"
-          content="Business Automation Services | Automate Ideas"
-        />
-        <meta
-          property="og:description"
-          content="Transform your business with our comprehensive automation services."
-        />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta
-          property="og:title"
-          content="Business Automation Services | Automate Ideas"
-        />
-        <meta
-          property="og:description"
-          content="Transform your business with our comprehensive automation services."
-        />
-        <meta
-          property="og:image"
-          content="https://yourwebsite.com/og-image.jpg"
-        />
-        <meta property="og:url" content="https://yourwebsite.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Automate Ideas" />
-        <meta property="og:locale" content="en_US" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@AutomateIdeas" />
-        <meta
-          name="twitter:title"
-          content="Business Automation Services | Automate Ideas"
-        />
-        <meta
-          name="twitter:description"
-          content="Transform your business with our comprehensive automation services."
-        />
-        <meta
-          name="twitter:image"
-          content="https://yourwebsite.com/og-image.jpg"
-        />
-
-        <meta
-          name="robots"
-          content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-        />
-        <meta name="author" content="Automate Ideas" />
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
-
-        <meta name="geo.region" content="IN-UP" />
-        <meta name="geo.placename" content="Nandgram, Ghaziabad" />
-        <meta name="geo.position" content="28.6897;77.4107" />
-      </head>
       <body
         className={`${roboto.className} h-screen w-full bg-[--color-background] font-[--font-primary] text-[--color-foreground] antialiased`}
-        data-new-gr-c-s-check-loaded="14.1321.0"
+        cz-shortcut-listen="true"
+        data-new-gr-c-s-check-loaded="14.1326.0"
+        data-gr-ext-installed=""
       >
         <NavBar />
         {children}
@@ -100,6 +148,10 @@ export default function RootLayout({
         <EnhancedCallButton />
         <SpeedInsights />
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </body>
     </html>
   );

@@ -17,9 +17,9 @@ export default function AboutSection() {
             <span className="ab-eyebrow-bar" />
             Who We Are
           </div>
-          <h1 className="ab-hero-h1">
+          <h2 className="ab-hero-h1">
             About <em>Us</em>
-          </h1>
+          </h2>
           <p className="ab-hero-sub">
             A team of passionate Google Workspace automation experts committed
             to helping businesses streamline operations, eliminate waste, and

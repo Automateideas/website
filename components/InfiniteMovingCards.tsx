@@ -108,7 +108,7 @@ const cardStyles = `
   .imc-author {
     display: flex;
     align-items: center;
-    gap: 0.9rem;
+    gap: 1rem;
     position: relative;
     z-index: 1;
   }
@@ -119,10 +119,11 @@ const cardStyles = `
     flex-shrink: 0;
   }
   .imc-avatar {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 110px !important;
+    height: 48px !important;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #ffffff;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 8px rgba(15,15,14,0.12);
     display: block;
@@ -130,7 +131,7 @@ const cardStyles = `
   .imc-avatar-ring {
     position: absolute;
     inset: -3px;
-    border-radius: 50%;
+    border-radius: 10px;
     border: 1.5px solid rgba(232,57,14,0.2);
     transition: border-color 0.25s, transform 0.25s;
   }
@@ -256,8 +257,8 @@ const InfiniteMovingCards = ({
                   <Image
                     src={item.image}
                     alt={`${item.name} profile`}
-                    width={44}
-                    height={44}
+                    width={110}
+                    height={48}
                     className="imc-avatar"
                     priority
                   />

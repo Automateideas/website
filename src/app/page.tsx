@@ -25,13 +25,13 @@ export default function Page() {
         <TestimonialsSection />
         <PricingSection />
         <AboutSection />
-        <div className="sec-divider">
+        {/* <div className="sec-divider">
           <div className="sec-divider-inner">
             <div className="sec-divider-line" />
             <span className="sec-divider-text">Contact Us</span>
             <div className="sec-divider-line" />
           </div>
-        </div>
+        </div> */}
         <ContactSection />
       </RevealProvider>
     </div>

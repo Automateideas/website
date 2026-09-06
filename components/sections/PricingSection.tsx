@@ -6,22 +6,23 @@ import MetaWhatsAppPricing from "@/components/sections/MetaWhatsAppPricing";
 
 export default function PricingSection() {
   return (
-    <section id="pricing">
-      <div className="pr-hero">
-        <div className="pr-hero-inner reveal">
-          <div className="pr-eyebrow">
-            <span className="pr-eyebrow-bar" />
-            Transparent & Flexible
+    <>
+      <section id="pricing">
+        <div className="pr-hero">
+          <div className="pr-hero-inner reveal">
+            <div className="pr-eyebrow">
+              <span className="pr-eyebrow-bar" />
+              Transparent & Flexible
+            </div>
+            <h2 className="pr-hero-h1">
+              Simple, Honest <em>Pricing</em>
+            </h2>
+            <p className="pr-hero-sub">
+              Every project is unique. Our pricing reflects your requirements and
+              complexity {"\u2014"} no hidden fees, no surprises.
+            </p>
           </div>
-          <h1 className="pr-hero-h1">
-            Simple, Honest <em>Pricing</em>
-          </h1>
-          <p className="pr-hero-sub">
-            Every project is unique. Our pricing reflects your requirements and
-            complexity {"\u2014"} no hidden fees, no surprises.
-          </p>
         </div>
-      </div>
 
       <section className="pr-custom">
         <div className="pr-section-eyebrow pr-blue reveal">
@@ -55,6 +56,7 @@ export default function PricingSection() {
             <div className="pr-orb-sub">Possibilities</div>
           </div>
         </div>
+      </section>
       </section>
 
       <MetaWhatsAppPricing />
@@ -142,6 +144,6 @@ export default function PricingSection() {
           })}
         </div>
       </section>
-    </section>
+    </>
   );
 }
