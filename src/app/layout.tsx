@@ -5,8 +5,6 @@ import "./styles.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -89,7 +87,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      email: "amit23kumar04@gmail.com",
+      email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
       telephone: "+919625598603",
       logo: { "@type": "ImageObject", url: `${SITE_URL}/Logo.png` },
       sameAs: socials,
@@ -116,7 +114,7 @@ const structuredData = {
       description:
         "Business automation, Google Workspace & Apps Script, WhatsApp Business API, and workflow automation services.",
       telephone: "+919625598603",
-      email: "amit23kumar04@gmail.com",
+      email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Nandgram, Ghaziabad",
@@ -146,8 +144,6 @@ export default function RootLayout({
         {children}
         <Footer />
         <EnhancedCallButton />
-        <SpeedInsights />
-        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

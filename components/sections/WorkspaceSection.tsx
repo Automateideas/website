@@ -14,7 +14,7 @@ export default function WorkspaceSection() {
             alt="Google Workspace Integration"
             width={520}
             height={520}
-            className="relative w-full max-w-[520px]"
+            className="relative w-full"
             style={{ zIndex: 1 }}
           />
         </div>

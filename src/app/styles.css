@@ -729,12 +729,29 @@
   .hc-red   { background: rgba(232,57,14,0.07); } .hc-red   svg { color: var(--accent); }
   .svc-card.svc-wide {
     flex-direction: row;
-    gap: clamp(1.5rem, 3vw, 3rem);
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0;
   }
-  .svc-wide .svc-left  { flex: 0 0 auto; width: clamp(240px, 38%, 420px); }
-  .svc-wide .svc-right { flex: 1; min-width: 0; }
+  .svc-wide .svc-left {
+    position: relative;
+    flex: 0 0 auto; width: clamp(260px, 40%, 460px);
+    padding-right: clamp(1.5rem, 3vw, 3rem);
+  }
+  .svc-wide .svc-num {
+    top: -0.4rem; right: 0;
+  }
+  .svc-wide .svc-right {
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column;
+    padding-left: clamp(1.5rem, 3vw, 3rem);
+    border-left: 1px solid var(--border);
+    justify-content: center;
+  }
   .svc-wide .svc-divider { display: none; }
+  @media (max-width: 860px) {
+    .svc-wide .svc-left { padding-right: 0; }
+    .svc-wide .svc-right { padding-left: 0; border-left: none; }
+  }
 
   /* ═══════════════════════════════════════════════════════════════════════════
      PRICING SECTION
@@ -1859,7 +1876,8 @@
   }
   @media (max-width: 860px) {
     .svc-card.svc-wide { flex-direction: column; gap: 1.5rem; }
-    .svc-wide .svc-left { width: 100%; }
+    .svc-wide .svc-left { width: 100%; padding-right: 0; }
+    .svc-wide .svc-right { padding-left: 0; border-left: none; }
   }
   @media (max-width: 640px) {
     .svc-grid-3, .svc-grid-2, .svc-grid-2x2, .svc-grid-1 { grid-template-columns: 1fr; }
