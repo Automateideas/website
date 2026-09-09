@@ -667,19 +667,19 @@ export const contactItems = [
   {
     label: "Call Us",
     value: "+91 9625598603",
-    icon: "/C.gif",
+    icon: "/logo/call.svg",
     href: "tel:+919625598603",
   },
   {
     label: "WhatsApp",
     value: "+91 9625598603",
-    icon: "/W.gif",
+    icon: "/logo/whatsapp.svg",
     href: "https://wa.me/919625598603?text=I%27m%20interested%20in%20your%20services",
   },
   {
     label: "Email Us",
     value: "amit23kumar04@gmail.com",
-    icon: "/M.gif",
+    icon: "/logo/gmail.svg",
     href: "mailto:amit23kumar04@gmail.com",
   },
 ];
@@ -767,4 +767,52 @@ export const wsFeatures = [
   "Drive-based document management",
   "Gmail workflow triggers & auto-replies",
   "Google Forms,  live dashboards",
+];
+
+// ── FAQ Data ──────────────────────────────────────────────────────────────────
+// Edit these questions/answers — the FAQ section on the page and the
+// FAQPage JSON-LD schema (for search engines & AI answers) both read
+// straight from this array, so they stay in sync automatically.
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export const faqItems: FaqItem[] = [
+  {
+    q: "What services does Automate Ideas offer?",
+    a: "We specialise in business automation — Google Workspace and Apps Script automation, Google Sheets reporting and live dashboards, WhatsApp Business API integration, CRM and lead management, invoice and payroll automation, and custom workflow design. If it's repetitive and manual, chances are we can automate it.",
+  },
+  {
+    q: "Do I need technical knowledge to use the automations?",
+    a: "Not at all. We build everything with your team in mind — the automations run in the background using tools you already know like Google Sheets, Gmail, and WhatsApp. We also provide simple documentation and a handover so your team can use everything with confidence.",
+  },
+  {
+    q: "How long does an automation project take?",
+    a: "It depends on scope, but most projects are delivered within 1–3 weeks. Simple automations can be up and running in a few days, while larger multi-step workflows are scoped and agreed with you before we start. You'll always get a clear timeline upfront.",
+  },
+  {
+    q: "How much do your services cost?",
+    a: "Every project is different, which is why we start with a free consultation to understand your needs. We then share a clear, fixed quote before any work begins — so you know exactly what you're paying for, with no hidden charges.",
+  },
+  {
+    q: "Can you work with our existing tools and software?",
+    a: "Yes. We work with the tools you already use — Google Workspace, WhatsApp, CRMs, accounting software, and more. In most cases we connect the systems you have so they work together, instead of forcing you to adopt new software.",
+  },
+  {
+    q: "Is my business data safe and secure?",
+    a: "Absolutely. We follow data security best practices, use least-privilege permissions, and never access or store your data beyond what's needed to run your automation. The Google Workspace and WhatsApp API platforms come with enterprise-grade security that we build on top of.",
+  },
+  {
+    q: "Do I need the WhatsApp Business API to automate WhatsApp?",
+    a: "For sending and receiving automated messages at scale, yes — the official WhatsApp Business API is required. We handle the entire setup for you, including Meta verification and approval, so you don't have to deal with the technicalities.",
+  },
+  {
+    q: "Do you offer support after delivery?",
+    a: "Yes. Every project includes a warranty and support period after delivery, and we offer ongoing maintenance packages for businesses that want continued updates and refinements as they grow.",
+  },
+  {
+    q: "Do I need to sign a long-term contract?",
+    a: "No. We charge per project, not per month. There are no lock-in contracts — you own everything we build, and we're happy to keep supporting you whenever you need help.",
+  },
 ];

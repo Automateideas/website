@@ -22,9 +22,9 @@ export default function ServicesSection() {
             Our <em>Services</em>
           </h2>
           <p className="svc-hero-sub">
-            From Google Workspace automation and WhatsApp integration to
-            digital marketing and security {"\u2014"} we build tools, systems,
-            and campaigns that help your business grow.
+            From Google Workspace automation and WhatsApp integration to digital
+            marketing and security {"\u2014"} we build tools, systems, and
+            campaigns that help your business grow.
           </p>
           <div className="svc-hero-stats">
             {svcStats.map((s) => (
@@ -118,10 +118,7 @@ export default function ServicesSection() {
                       </>
                     ) : (
                       <>
-                        <span
-                          className={`svc-num ${c.num}`}
-                          aria-hidden="true"
-                        >
+                        <span className={`svc-num ${c.num}`} aria-hidden="true">
                           {String(si + 1).padStart(2, "0")}
                         </span>
                         <div className={`svc-icon ${c.icon}`}>

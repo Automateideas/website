@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { openCookieSettings } from "@/lib/consent";
 import "./Footer.css";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -43,6 +44,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
   { label: "About Us", href: "#about" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact Us", href: "#contact" },
 ];
 const services = [
@@ -54,8 +56,12 @@ const services = [
 ];
 
 const contactPoints = [
-  { label: "Email us", value: "amit23kumar04@gmail.com", icon: "✉" },
-  { label: "Call us", value: "+91 96255 98603", icon: "✆" },
+  {
+    label: "Email us",
+    value: "amit23kumar04@gmail.com",
+    icon: "/logo/gmail.svg",
+  },
+  { label: "Call us", value: "+91 96255 98603", icon: "/logo/call.svg" },
 ];
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -75,7 +81,12 @@ function Footer() {
             <a className="ft-cta-btn ft-cta-btn-primary" href="#contact">
               Get a Free Audit
             </a>
-            <a className="ft-cta-btn ft-cta-btn-ghost" href="https://wa.me/919625598603" target="_blank" rel="noopener noreferrer">
+            <a
+              className="ft-cta-btn ft-cta-btn-ghost"
+              href="https://wa.me/919625598603"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Talk to Us
             </a>
           </div>
@@ -88,7 +99,7 @@ function Footer() {
         <div className="ft-brand">
           <Link href="/" className="ft-logo">
             <Image
-              src="/Logo.png"
+              src="/logo/Logo.png"
               alt="Automate Ideas"
               width={38}
               height={38}
@@ -108,7 +119,14 @@ function Footer() {
           <div className="ft-contact">
             {contactPoints.map((cp) => (
               <div className="ft-contact-row" key={cp.label}>
-                <span className="ft-contact-icon" aria-hidden="true">{cp.icon}</span>
+                <Image
+                  className="ft-contact-icon"
+                  aria-hidden="true"
+                  src={cp.icon}
+                  width={20}
+                  height={20}
+                  alt="Icons"
+                />
                 <div>
                   <div className="ft-contact-label">{cp.label}</div>
                   <div className="ft-contact-value">{cp.value}</div>
@@ -176,6 +194,13 @@ function Footer() {
         </div>
 
         <div className="ft-legal">
+          <button
+            type="button"
+            className="ft-legal-link ft-legal-btn"
+            onClick={openCookieSettings}
+          >
+            Cookie Preferences
+          </button>
           <Link href="/privacy-policy" className="ft-legal-link">
             Privacy Policy
           </Link>

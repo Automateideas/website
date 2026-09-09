@@ -16,6 +16,7 @@ const navMenu = [
   { label: "Pricing", href: "#pricing", sectionId: "pricing" },
   { label: "WhatsApp", href: "#meta-wa-pricing", sectionId: "meta-wa-pricing" },
   { label: "About Us", href: "#about", sectionId: "about" },
+  { label: "FAQ", href: "#faq", sectionId: "faq" },
   { label: "Contact Us", href: "#contact", sectionId: "contact" },
 ];
 

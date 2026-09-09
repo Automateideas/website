@@ -51,26 +51,6 @@ const cardStyles = `
     border-color: #e8390e;
   }
 
-  /*
-   * Decorative quote mark — DM Serif Display matches the display font used
-   * across all headings. Italic style adds elegance consistent with
-   * the .line-accent technique throughout the site.
-   */
-  .imc-quote-mark {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.75rem;
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 5rem;
-    font-style: italic;
-    line-height: 1;
-    font-weight: 400;
-    color: rgba(232,57,14,0.07);
-    pointer-events: none;
-    user-select: none;
-    letter-spacing: -0.01em;
-  }
-
   /* Stars */
   .imc-stars {
     display: flex;
@@ -104,40 +84,35 @@ const cardStyles = `
     margin-bottom: 1.25rem;
   }
 
-  /* Author row */
-  .imc-author {
+  /* Company logo — full-width band so the brand is clear */
+  .imc-logo-band {
+    margin: -2rem -2rem 1.5rem;
+    padding: 1.5rem 2rem;
+    min-height: 90px;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    position: relative;
-    z-index: 1;
+    justify-content: center;
+    background: #fafaf8;
+    border-bottom: 1px solid #e9e7e1;
+    transition: background 0.28s, border-color 0.28s;
   }
-
-  /* Avatar */
-  .imc-avatar-wrap {
-    position: relative;
-    flex-shrink: 0;
-  }
-  .imc-avatar {
-    width: 110px !important;
-    height: 48px !important;
-    border-radius: 8px;
-    object-fit: contain;
+  .imc-card:hover .imc-logo-band {
     background: #ffffff;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 8px rgba(15,15,14,0.12);
+    border-color: rgba(232,57,14,0.35);
+  }
+  .imc-logo {
+    width: 100% !important;
+    max-width: 280px;
+    height: 58px !important;
+    object-fit: contain;
+    mix-blend-mode: multiply;
     display: block;
   }
-  .imc-avatar-ring {
-    position: absolute;
-    inset: -3px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(232,57,14,0.2);
-    transition: border-color 0.25s, transform 0.25s;
-  }
-  .imc-card:hover .imc-avatar-ring {
-    border-color: rgba(232,57,14,0.5);
-    transform: scale(1.08);
+
+  /* Author row */
+  .imc-author {
+    position: relative;
+    z-index: 1;
   }
 
   /*
@@ -231,10 +206,17 @@ const InfiniteMovingCards = ({
         >
           {items.map((item) => (
             <li className="imc-card" key={item.name}>
-              {/* Decorative big quote mark */}
-              <span className="imc-quote-mark" aria-hidden="true">
-                "
-              </span>
+              {/* Company logo — full width */}
+              <div className="imc-logo-band">
+                <Image
+                  src={item.image}
+                  alt={`${item.title} logo`}
+                  width={280}
+                  height={58}
+                  className="imc-logo"
+                  priority
+                />
+              </div>
 
               {/* Stars */}
               <div className="imc-stars" aria-label="5 stars">
@@ -253,21 +235,8 @@ const InfiniteMovingCards = ({
 
               {/* Author */}
               <div className="imc-author">
-                <div className="imc-avatar-wrap">
-                  <Image
-                    src={item.image}
-                    alt={`${item.name} profile`}
-                    width={110}
-                    height={48}
-                    className="imc-avatar"
-                    priority
-                  />
-                  <div className="imc-avatar-ring" aria-hidden="true" />
-                </div>
-                <div>
-                  <div className="imc-name">{item.name}</div>
-                  <div className="imc-company">{item.title}</div>
-                </div>
+                <div className="imc-name">{item.name}</div>
+                <div className="imc-company">{item.title}</div>
               </div>
             </li>
           ))}

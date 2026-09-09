@@ -1,0 +1,47 @@
+:root {
+    --accent: #e8390e;
+    --ink:    #0f0f0e;
+    --border: #e9e7e1;
+  }
+
+  /* Positions above the call FAB (54px mobile / 60px desktop) */
+  .btt-btn {
+    position: fixed;
+    right: 1.5rem;
+    bottom: calc(1.5rem + 54px + 0.9rem);
+    z-index: 45;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #ffffff;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(15,15,14,0.18);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+  }
+  @media (min-width: 640px) {
+    .btt-btn { right: 2rem; bottom: calc(2rem + 60px + 0.9rem); }
+  }
+
+  .btt-btn.btt-visible {
+    opacity: 1; transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .btt-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btt-btn:active { transform: translateY(0) scale(0.92); }
+
+  /* Accessibility quality floor */
+  .btt-btn:focus-visible {
+    outline: 3px solid var(--accent, #e8390e);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btt-btn { transition: none !important; transform: none !important; }
+  }

@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "./styles.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { faqItems } from "@/lib/site-data";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -13,8 +17,10 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const SITE_URL = "https://automateideas.in";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://automateideas.in";
 const SITE_NAME = "Automate Ideas";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 const socials = [
   "https://www.facebook.com/profile.php?id=61575991143624",
@@ -26,12 +32,23 @@ const socials = [
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Business Automation Services | Automate Ideas",
+  title: {
+    default: "Business Automation Services | Automate Ideas",
+    template: `%s | ${SITE_NAME}`,
+  },
   description:
     "Automate your business processes with our expert solutions. From Google Sheets automation to CRM and WhatsApp, we streamline your workflows.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
   category: "business services",
+  keywords: [
+    "business automation",
+    "Google Sheets automation",
+    "Apps Script automation",
+    "WhatsApp Business API",
+    "CRM automation",
+    "workflow automation India",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -42,7 +59,7 @@ export const metadata: Metadata = {
       "Transform your business with our comprehensive automation services.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/Automate Ideas Card.png",
         width: 1200,
         height: 630,
         alt: "Automate Ideas - Business Automation Services",
@@ -55,7 +72,7 @@ export const metadata: Metadata = {
     title: "Business Automation Services | Automate Ideas",
     description:
       "Transform your business with our comprehensive automation services.",
-    images: ["/og-image.jpg"],
+    images: ["/Automate Ideas Card.png"],
   },
   robots: {
     index: true,
@@ -69,7 +86,18 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/logo/DarkLogo.png", type: "image/png", sizes: "32x32" },
+      { url: "/logo/DarkLogo.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: "/logo/DarkLogo.png" }],
+  },
+  // Helps AI crawlers / answer engines (GPTBot, PerplexityBot, ClaudeBot, Google-Extended)
+  // understand this is a legitimate, indexable business site. Fine-grained bot rules
+  // still need to be added in robots.txt separately.
+  other: {
+    "ai-content-declaration": "human-authored",
   },
 };
 
@@ -79,6 +107,12 @@ export const viewport: Viewport = {
   themeColor: "#0f0f0e",
 };
 
+// ---- Structured data (JSON-LD) ----
+// Includes standard SEO schema plus AEO/GEO-oriented additions:
+// FAQPage (answer engines lift these directly into AI answers),
+// Speakable (voice assistants), and a fuller Service/knowsAbout graph
+// so LLM-based engines (ChatGPT, Gemini, Perplexity, Claude) can
+// accurately summarize what the business does.
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -87,7 +121,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
+      email: CONTACT_EMAIL,
       telephone: "+919625598603",
       logo: { "@type": "ImageObject", url: `${SITE_URL}/Logo.png` },
       sameAs: socials,
@@ -97,6 +131,14 @@ const structuredData = {
         addressRegion: "Uttar Pradesh",
         addressCountry: "IN",
       },
+      knowsAbout: [
+        "Business Process Automation",
+        "Google Workspace Automation",
+        "Google Apps Script",
+        "WhatsApp Business API",
+        "CRM Automation",
+        "Workflow Automation",
+      ],
     },
     {
       "@type": "WebSite",
@@ -104,17 +146,22 @@ const structuredData = {
       url: SITE_URL,
       name: SITE_NAME,
       publisher: { "@id": `${SITE_URL}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
     },
     {
       "@type": "ProfessionalService",
       "@id": `${SITE_URL}/#service`,
       name: `${SITE_NAME} - Business Automation Agency`,
       url: SITE_URL,
-      image: `${SITE_URL}/og-image.jpg`,
+      image: `${SITE_URL}/Automate Ideas Card.png`,
       description:
         "Business automation, Google Workspace & Apps Script, WhatsApp Business API, and workflow automation services.",
       telephone: "+919625598603",
-      email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
+      email: CONTACT_EMAIL,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Nandgram, Ghaziabad",
@@ -123,6 +170,35 @@ const structuredData = {
       },
       areaServed: "IN",
       priceRange: "$$",
+    },
+    // AEO/GEO: FAQPage schema — answer engines (Google AI Overviews,
+    // Perplexity, ChatGPT browsing, Gemini) frequently lift Q&A pairs
+    // like this directly into generated answers. Content is read from
+    // lib/site-data `faqItems` so it always matches the on-page FAQ.
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+    // AEO/GEO: Speakable — signals which content is suited for
+    // voice/AI assistant readout.
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".hero-description"],
+      },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#organization` },
     },
   ],
 };
@@ -134,16 +210,79 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
+      <head>
+        {/*
+          Google Consent Mode v2 defaults — set to denied BEFORE any
+          analytics/ads tag loads so nothing tracks until the visitor
+          consents (compliance with DPDP Act 2023 & EU GDPR).
+        */}
+        <Script id="consent-mode-defaults">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'denied',
+              functionality_storage: 'denied',
+              personalization_storage: 'denied',
+              security_storage: 'granted',
+              wait_for_update: 700,
+            });
+          `}
+        </Script>
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9HEQETZC6E"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9HEQETZC6E');
+          `}
+        </Script>
+        {/* End Google tag (gtag.js) */}
+
+        {/* Google Tag Manager */}
+        {GTM_ID && (
+          <Script id="gtm-script" strategy="afterInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');
+            `}
+          </Script>
+        )}
+        {/* End Google Tag Manager */}
+      </head>
       <body
         className={`${roboto.className} h-screen w-full bg-[--color-background] font-[--font-primary] text-[--color-foreground] antialiased`}
-        cz-shortcut-listen="true"
-        data-new-gr-c-s-check-loaded="14.1326.0"
-        data-gr-ext-installed=""
       >
+        {/* Google Tag Manager (noscript) */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
+        {/* End Google Tag Manager (noscript) */}
         <NavBar />
         {children}
         <Footer />
         <EnhancedCallButton />
+        <BackToTop />
+        <CookieConsent />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
