@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "Transform your business with our comprehensive automation services.",
     images: [
       {
-        url: "/Automate Ideas Card.png",
+        url: "/automate-ideas-card.png",
         width: 1200,
         height: 630,
         alt: "Automate Ideas - Business Automation Services",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "Business Automation Services | Automate Ideas",
     description:
       "Transform your business with our comprehensive automation services.",
-    images: ["/Automate Ideas Card.png"],
+    images: ["/automate-ideas-card.png"],
   },
   robots: {
     index: true,
@@ -157,7 +157,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#service`,
       name: `${SITE_NAME} - Business Automation Agency`,
       url: SITE_URL,
-      image: `${SITE_URL}/Automate Ideas Card.png`,
+      image: `${SITE_URL}/automate-ideas-card.png`,
       description:
         "Business automation, Google Workspace & Apps Script, WhatsApp Business API, and workflow automation services.",
       telephone: "+919625598603",
