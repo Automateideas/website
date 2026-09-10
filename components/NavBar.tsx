@@ -46,8 +46,22 @@ function NavBar() {
   // containing it wins, so a nested section (e.g. #meta-wa-pricing inside
   // #pricing) is preferred over its parent.
   const [activeId, setActiveId] = useState("hero");
+  const lastUrlRef = useRef<string>("");
   useEffect(() => {
     let ticking = false;
+
+    // Keep the URL hash in sync with the section currently in view (scrollspy).
+    // replaceState avoids polluting history / causing scroll jumps on every tick.
+    const updateUrl = (id: string) => {
+      const target =
+        id === "hero"
+          ? `${window.location.pathname}${window.location.search}`
+          : `#${id}`;
+      if (lastUrlRef.current !== target) {
+        lastUrlRef.current = target;
+        window.history.replaceState(null, "", target);
+      }
+    };
 
     const probe = () => {
       ticking = false;
@@ -63,7 +77,10 @@ function NavBar() {
           best = m.sectionId;
         }
       }
-      if (best) setActiveId(best);
+      if (best) {
+        setActiveId(best);
+        updateUrl(best);
+      }
     };
 
     const onScroll = () => {
