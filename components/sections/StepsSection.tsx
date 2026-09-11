@@ -1,8 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import ExpandableSteps from "@/components/ExpandableSteps";
 
+const ExpandableSteps = dynamic(() => import("@/components/ExpandableSteps"));
 export const Ecosystem = dynamic(() => import("@/components/Ecosystem"));
 
 export default function StepsSection() {

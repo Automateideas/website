@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import "./styles.css";
@@ -8,12 +8,22 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { faqItems } from "@/lib/site-data";
 
-const roboto = Roboto({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -88,10 +98,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/logo/DarkLogo.png", type: "image/png", sizes: "32x32" },
-      { url: "/logo/DarkLogo.png", type: "image/png", sizes: "192x192" },
+      { url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icons/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/logo/DarkLogo.png" }],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Automate Ideas",
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: false,
   },
   // Helps AI crawlers / answer engines (GPTBot, PerplexityBot, ClaudeBot, Google-Extended)
   // understand this is a legitimate, indexable business site. Fine-grained bot rules
@@ -104,7 +123,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f0f0e",
+  themeColor: "#ffffff",
 };
 
 // ---- Structured data (JSON-LD) ----
@@ -123,7 +142,7 @@ const structuredData = {
       url: SITE_URL,
       email: CONTACT_EMAIL,
       telephone: "+919625598603",
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/Logo.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo/Logo.png` },
       sameAs: socials,
       address: {
         "@type": "PostalAddress",
@@ -146,11 +165,6 @@ const structuredData = {
       url: SITE_URL,
       name: SITE_NAME,
       publisher: { "@id": `${SITE_URL}/#organization` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${SITE_URL}/search?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
     },
     {
       "@type": "ProfessionalService",
@@ -195,7 +209,7 @@ const structuredData = {
       url: SITE_URL,
       speakable: {
         "@type": "SpeakableSpecification",
-        cssSelector: ["h1", ".hero-description"],
+        cssSelector: ["h1", ".hero-sub"],
       },
       isPartOf: { "@id": `${SITE_URL}/#website` },
       about: { "@id": `${SITE_URL}/#organization` },
@@ -263,7 +277,7 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
       </head>
       <body
-        className={`${roboto.className} h-screen w-full bg-[--color-background] font-[--font-primary] text-[--color-foreground] antialiased`}
+        className={`${dmSans.variable} ${dmSerifDisplay.variable} ${dmSans.className} h-screen w-full bg-[--color-background] text-[--color-foreground] antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         {GTM_ID && (
@@ -283,6 +297,7 @@ export default function RootLayout({
         <EnhancedCallButton />
         <BackToTop />
         <CookieConsent />
+        <ServiceWorkerRegister />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

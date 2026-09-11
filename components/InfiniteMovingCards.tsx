@@ -214,7 +214,6 @@ const InfiniteMovingCards = ({
                   width={280}
                   height={58}
                   className="imc-logo"
-                  priority
                 />
               </div>
 

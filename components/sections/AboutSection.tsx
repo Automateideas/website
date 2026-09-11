@@ -132,8 +132,8 @@ export default function AboutSection() {
                     src={member.image}
                     alt={member.name}
                     className="ab-member-photo"
-                    width={10000}
-                    height={10000}
+                    width={400}
+                    height={450}
                   />
                 ) : (
                   <div className="ab-member-avatar-placeholder">
