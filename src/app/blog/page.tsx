@@ -6,6 +6,7 @@ import { pageJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Blog",
   description: blogIndexData.subtitle,
+  keywords: blogIndexData.keywords,
   alternates: { canonical: "/blog" },
   openGraph: {
     type: "website",

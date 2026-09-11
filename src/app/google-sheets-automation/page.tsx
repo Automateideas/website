@@ -6,6 +6,7 @@ import { pageJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: sheetsPage.title,
   description: sheetsPage.subtitle,
+  keywords: sheetsPage.keywords,
   alternates: { canonical: "/google-sheets-automation" },
   openGraph: {
     type: "website",

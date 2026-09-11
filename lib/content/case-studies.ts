@@ -358,4 +358,11 @@ export const caseStudiesIndexSection = {
   title: "Case Studies",
   subtitle:
     "Real businesses, real workflows, real time saved. Here's how our systems run inside a few of the 50+ companies we've automated.",
+  keywords: [
+    "business automation case studies",
+    "Google Sheets automation examples",
+    "WhatsApp automation examples",
+    "CRM automation case studies",
+    "Google Apps Script projects",
+  ],
 };

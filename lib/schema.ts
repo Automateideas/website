@@ -40,6 +40,7 @@ export function pageJsonLd({ type, data, path, image, offersPrice }: PageSchemaP
     name: data.title,
     headline: data.title,
     description: data.subtitle,
+    keywords: data.keywords?.join(", "),
     inLanguage: "en",
     isPartOf: { "@id": `${SITE_URL}/#website` },
     mainEntityOfPage: url,

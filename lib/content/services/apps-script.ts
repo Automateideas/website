@@ -7,6 +7,15 @@ export const appsScriptPage: ContentPageData = {
   subtitle:
     "Custom automation and web apps built on Google Apps Script — connecting Sheets, Gmail, Drive, Docs, Calendar, and Forms into one streamlined system that runs your business on autopilot.",
   breadcrumbs: [{ label: "Services" }],
+  keywords: [
+    "Google Apps Script development",
+    "Apps Script developer",
+    "Apps Script consultant",
+    "CRM automation services",
+    "AppSheet development services",
+    "Google Workspace automation",
+    "Google Workspace consultant",
+  ],
   stats: [
     { label: "Faster workflows", value: "10×" },
     { label: "Businesses automated", value: "50+" },

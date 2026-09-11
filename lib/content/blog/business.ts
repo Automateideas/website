@@ -100,4 +100,12 @@ export const blogIndexData = {
   title: "The Automate Ideas Blog",
   subtitle:
     "Practical, no-fluff guides on Google Workspace automation, Google Sheets, and WhatsApp for small and mid-size businesses in India.",
+  keywords: [
+    "how to automate Google Sheets",
+    "how to automate Gmail",
+    "Google Apps Script tutorial",
+    "how WhatsApp Business API works",
+    "Google Sheets CRM",
+    "how to create automated reports",
+  ],
 };

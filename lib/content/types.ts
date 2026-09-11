@@ -37,6 +37,7 @@ export interface ContentPageData {
   author?: { name: string; role: string };
   readTime?: string;
   tags?: string[];
+  keywords?: string[];
   metaChips?: { label: string; value: string }[];
   stats?: StatBanner[];
   sections: ContentBlock[];

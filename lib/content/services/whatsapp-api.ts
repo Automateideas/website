@@ -7,6 +7,13 @@ export const whatsappApiPage: ContentPageData = {
   subtitle:
     "Go official with Meta's WhatsApp Business Platform — verify your business, send transactional messages, OTPs, order updates, and automated chatbot flows at scale, with a green-tick account your customers can trust.",
   breadcrumbs: [{ label: "Services" }],
+  keywords: [
+    "WhatsApp Business API integration",
+    "WhatsApp Business API India",
+    "WhatsApp chatbot development",
+    "WhatsApp CRM integration",
+    "WhatsApp automation services",
+  ],
   stats: [
     { label: "Official platform", value: "Meta" },
     { label: "Message delivery", value: "99%" },

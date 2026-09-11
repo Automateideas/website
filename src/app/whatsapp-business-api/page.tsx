@@ -6,6 +6,7 @@ import { pageJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: whatsappApiPage.title,
   description: whatsappApiPage.subtitle,
+  keywords: whatsappApiPage.keywords,
   alternates: { canonical: "/whatsapp-business-api" },
   openGraph: {
     type: "website",

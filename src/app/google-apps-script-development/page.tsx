@@ -6,6 +6,7 @@ import { pageJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: appsScriptPage.title,
   description: appsScriptPage.subtitle,
+  keywords: appsScriptPage.keywords,
   alternates: { canonical: "/google-apps-script-development" },
   openGraph: {
     type: "website",

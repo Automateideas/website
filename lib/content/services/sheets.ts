@@ -7,6 +7,15 @@ export const sheetsPage: ContentPageData = {
   subtitle:
     "Turn spreadsheets from manual data-entry jobs into self-updating systems — live dashboards, auto-generated invoices, inventory and attendance trackers, and reporting pipelines that build themselves.",
   breadcrumbs: [{ label: "Services" }],
+  keywords: [
+    "Google Sheets automation services",
+    "Google Sheets automation",
+    "automated business reporting",
+    "Looker Studio dashboard",
+    "invoice automation",
+    "workflow automation",
+    "Google Sheets CRM",
+  ],
   stats: [
     { label: "Hours saved weekly", value: "10+" },
     { label: "Businesses automated", value: "50+" },

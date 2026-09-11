@@ -7,6 +7,13 @@ export const aboutPage: ContentPageData = {
   subtitle:
     "Automate Ideas helps small and mid-size businesses stop doing repetitive work by hand. We design systems inside Google Workspace and WhatsApp that save hours every week — and we've done it for 50+ businesses across 6+ industries.",
   breadcrumbs: [{ label: "About", href: "/about" }],
+  keywords: [
+    "business automation company India",
+    "business automation agency",
+    "Google Workspace consultant",
+    "Google Apps Script developer",
+    "business process automation services",
+  ],
   stats: [
     { label: "Clients served", value: "50+" },
     { label: "Industries", value: "6+" },

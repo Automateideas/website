@@ -10,6 +10,8 @@ import CookieConsent from "@/components/CookieConsent";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { faqItems } from "@/lib/site-data";
 
 const dmSans = DM_Sans({
@@ -55,16 +57,22 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Automate your business processes with our expert solutions. From Google Sheets automation to CRM and WhatsApp, we streamline your workflows.",
+    "Automate Ideas is a business automation company in India offering Google Workspace automation services — Google Apps Script development, Google Sheets automation, and WhatsApp Business API integration for 50+ businesses.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
   category: "business services",
   keywords: [
+    "Google Workspace automation",
+    "Google Workspace automation services",
+    "Google Apps Script development",
+    "Google Sheets automation services",
+    "WhatsApp Business API integration",
+    "WhatsApp automation services",
+    "business process automation services",
+    "CRM automation services",
+    "AppSheet development services",
+    "business automation company India",
     "business automation",
-    "Google Sheets automation",
-    "Apps Script automation",
-    "WhatsApp Business API",
-    "CRM automation",
     "workflow automation India",
   ],
   alternates: { canonical: "/" },
@@ -74,7 +82,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "Business Automation Services | Automate Ideas",
     description:
-      "Transform your business with our comprehensive automation services.",
+      "Google Workspace automation services in India — Apps Script development, Google Sheets automation, and WhatsApp Business API integration.",
     images: [
       {
         url: "/automate-ideas-card.png",
@@ -89,7 +97,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Business Automation Services | Automate Ideas",
     description:
-      "Transform your business with our comprehensive automation services.",
+      "Google Workspace automation services in India — Apps Script development, Google Sheets automation, and WhatsApp Business API integration.",
     images: ["/automate-ideas-card.png"],
   },
   robots: {
@@ -292,6 +300,8 @@ export default function RootLayout({
         <BackToTop />
         <CookieConsent />
         <ServiceWorkerRegister />
+        <Analytics />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
