@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Check, MessageCircle } from "lucide-react";
 import { customChips, whatsappPlans } from "@/lib/site-data";
 import MetaWhatsAppPricing from "@/components/sections/MetaWhatsAppPricing";
@@ -77,6 +78,9 @@ export default function PricingSection() {
             Fixed pricing for our WhatsApp API platform with enterprise-grade
             features, reliable uptime, and priority support.
           </p>
+          <Link href="/whatsapp-automation-services" className="pr-learn-more reveal">
+            Learn more about WhatsApp automation <span aria-hidden="true">→</span>
+          </Link>
         </div>
         <div className="pr-plans-grid">
           {whatsappPlans.map((plan, i) => {

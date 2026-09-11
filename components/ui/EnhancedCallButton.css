@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
-
-  :root {
+:root {
     --accent: #e8390e;
     --ink:    #111110;
   }
@@ -84,7 +82,7 @@
     position: relative;
   }
   .fcb-tooltip-num {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne, 'Syne', sans-serif);
     font-size: 0.82rem; font-weight: 700;
     color: #fff; letter-spacing: 0.02em;
     display: flex; align-items: center; gap: 0.4rem;

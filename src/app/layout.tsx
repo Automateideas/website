@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { DM_Sans, DM_Serif_Display, Syne } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import "./styles.css";
 import NavBar from "@/components/NavBar";
+import HashScroll from "@/components/HashScroll";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { EnhancedCallButton } from "@/components/ui/EnhancedCallButton";
@@ -13,9 +14,16 @@ import { faqItems } from "@/lib/site-data";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-syne",
   display: "swap",
 });
 
@@ -230,7 +238,7 @@ export default function RootLayout({
           analytics/ads tag loads so nothing tracks until the visitor
           consents (compliance with DPDP Act 2023 & EU GDPR).
         */}
-        <Script id="consent-mode-defaults">
+        <Script id="consent-mode-defaults" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -247,24 +255,9 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-9HEQETZC6E"
-          strategy="afterInteractive"
-        />
-        <Script id="ga-gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-9HEQETZC6E');
-          `}
-        </Script>
-        {/* End Google tag (gtag.js) */}
-
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager — GA4 (G-9HEQETZC6E) is loaded inside GTM, so no separate gtag.js */}
         {GTM_ID && (
-          <Script id="gtm-script" strategy="afterInteractive">
+          <Script id="gtm-script" strategy="lazyOnload">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -277,7 +270,7 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
       </head>
       <body
-        className={`${dmSans.variable} ${dmSerifDisplay.variable} ${dmSans.className} h-screen w-full bg-[--color-background] text-[--color-foreground] antialiased`}
+        className={`${dmSans.variable} ${dmSerifDisplay.variable} ${syne.variable} ${dmSans.className} h-screen w-full bg-[--color-background] text-[--color-foreground] antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         {GTM_ID && (
@@ -292,6 +285,7 @@ export default function RootLayout({
         )}
         {/* End Google Tag Manager (noscript) */}
         <NavBar />
+        <HashScroll />
         {children}
         <Footer />
         <EnhancedCallButton />

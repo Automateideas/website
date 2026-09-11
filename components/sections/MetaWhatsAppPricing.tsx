@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import Link from "next/link";
 import { Check, MessageCircle, ShieldCheck } from "lucide-react";
 import {
   BOOK_CALL_URL,
@@ -40,6 +41,9 @@ export default function MetaWhatsAppPricing() {
           solutions. From basic messaging to advanced team collaboration
           {" \u2014 "}we've got you covered.
         </p>
+        <Link href="/whatsapp-business-api" className="mw-learn-more">
+          Learn more about the WhatsApp Business API <span aria-hidden="true">→</span>
+        </Link>
 
         <div className="mw-billing" role="group" aria-label="Billing period">
           <button

@@ -12,12 +12,10 @@ const BOOK_CALL_URL = "https://calendar.app.google/tQGZDNw8JgBJekHeA";
 
 const navMenu = [
   { label: "Home", href: "/", sectionId: "hero" },
-  { label: "Services", href: "#services", sectionId: "services" },
-  { label: "Pricing", href: "#pricing", sectionId: "pricing" },
-  { label: "WhatsApp", href: "#meta-wa-pricing", sectionId: "meta-wa-pricing" },
-  { label: "About Us", href: "#about", sectionId: "about" },
-  { label: "FAQ", href: "#faq", sectionId: "faq" },
-  { label: "Contact Us", href: "#contact", sectionId: "contact" },
+  { label: "Services", href: "/#services", sectionId: "services" },
+  { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/#contact", sectionId: "contact" },
 ];
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -47,6 +45,30 @@ function NavBar() {
   // #pricing) is preferred over its parent.
   const [activeId, setActiveId] = useState("hero");
   const lastUrlRef = useRef<string>("");
+
+  // Fixed header height + breathing room; matches HashScroll/CSS scroll-margin.
+  const HEADER_OFFSET = 84;
+
+  // True when this item is the "current" page/section.
+  const isActive = (item: (typeof navMenu)[number]) =>
+    item.sectionId
+      ? pathname === "/" && activeId === item.sectionId
+      : pathname === item.href;
+
+  // Scroll to a home-page section manually. When we're already on "/", Next
+  // Link's hash navigation is unreliable, so we take over and smooth-scroll.
+  const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    setActiveId(sectionId);
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(sectionId);
+      if (el) {
+        const top =
+          el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      }
+    }
+  };
   useEffect(() => {
     let ticking = false;
 
@@ -69,6 +91,7 @@ function NavBar() {
       let best: string | null = null;
       let bestHeight = Infinity;
       for (const m of navMenu) {
+        if (!m.sectionId) continue;
         const el = document.getElementById(m.sectionId);
         if (!el) continue;
         const r = el.getBoundingClientRect();
@@ -115,7 +138,7 @@ function NavBar() {
           {/* ── Logo ── */}
           <Link href="/" className="nb-logo">
             <Image
-              src="/Logo.png"
+              src="/logo/Logo.png"
               alt="Automate Ideas"
               width={36}
               height={36}
@@ -131,13 +154,15 @@ function NavBar() {
           {/* ── Desktop nav links ── */}
           <nav className="nb-nav" aria-label="Main navigation">
             {navMenu.map((item) => {
-              const active = item.sectionId === activeId;
+              const active = isActive(item);
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   prefetch={item.href === "/"}
-                  onClick={() => setActiveId(item.sectionId)}
+                  onClick={(e) =>
+                    item.sectionId && scrollToSection(e, item.sectionId)
+                  }
                   className={`nb-link${active ? "nb-active" : ""}`}
                 >
                   {item.label}
@@ -208,14 +233,16 @@ function NavBar() {
             <nav className="nb-drawer-links" aria-label="Mobile navigation">
               <div className="nb-drawer-section-label">Navigation</div>
               {navMenu.map((item) => {
-                const active = item.sectionId === activeId;
+                const active = isActive(item);
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
                     className={`nb-drawer-link${active ? "nb-drawer-active" : ""}`}
-                    onClick={() => {
-                      setActiveId(item.sectionId);
+                    onClick={(e) => {
+                      if (item.sectionId) {
+                        scrollToSection(e, item.sectionId);
+                      }
                       setOpen(false);
                     }}
                   >

@@ -41,18 +41,20 @@ const socialLinks = [
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About Us", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "About Us", href: "/about" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 const services = [
-  "Google Workspace",
-  "WhatsApp API",
-  "Process Automation",
-  "Data Analytics",
-  "Custom Web Apps",
+  {
+    label: "Google Apps Script Development",
+    href: "/google-apps-script-development",
+  },
+  { label: "Google Sheets Automation", href: "/google-sheets-automation" },
+  { label: "WhatsApp Business API", href: "/whatsapp-business-api" },
+  { label: "WhatsApp Automation", href: "/whatsapp-automation-services" },
 ];
 
 const contactPoints = [
@@ -78,9 +80,9 @@ function Footer() {
             </h2>
           </div>
           <div className="ft-cta-actions">
-            <a className="ft-cta-btn ft-cta-btn-primary" href="#contact">
+            <Link href="/#contact" className="ft-cta-btn ft-cta-btn-primary">
               Get a Free Audit
-            </a>
+            </Link>
             <a
               className="ft-cta-btn ft-cta-btn-ghost"
               href="https://wa.me/919625598603"
@@ -177,8 +179,8 @@ function Footer() {
           <div className="ft-col-label">Services</div>
           <div className="ft-links">
             {services.map((s) => (
-              <Link key={s} href="#services" className="ft-link">
-                {s}
+              <Link key={s.href} href={s.href} className="ft-link">
+                {s.label}
               </Link>
             ))}
           </div>
@@ -188,7 +190,7 @@ function Footer() {
       {/* ── Bottom bar ── */}
       <div className="ft-bottom">
         <div className="ft-copy">
-          © 2025 Automate Ideas
+          © 2026 Automate Ideas
           <span className="ft-copy-dot" />
           All rights reserved
         </div>

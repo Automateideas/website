@@ -13,7 +13,7 @@
   --ec-accent: #e8390e;
   --ec-accent-soft: rgba(232, 57, 14, 0.08);
   --ec-accent2: #ff6b3d;
-  --ec-display: "Syne", sans-serif;
+  --ec-display: var(--font-syne, "Syne", sans-serif);
   --ec-body: var(--font-body), sans-serif;
 }
 

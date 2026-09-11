@@ -24,7 +24,7 @@ export function EnhancedCallButton() {
           {/* Tooltip */}
           <div className="fcb-tooltip" role="tooltip">
             <div className="fcb-tooltip-inner">
-              <div className="fcb-tooltip-num">+91 7210-756-879</div>
+              <div className="fcb-tooltip-num">+91 9625-568-603</div>
               <div className="fcb-tooltip-sub">Available now · Tap to call</div>
               <div className="fcb-arrow" aria-hidden="true" />
             </div>

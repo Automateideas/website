@@ -21,12 +21,24 @@ import {
 export const BOOK_CALL_URL = "https://calendar.app.google/tQGZDNw8JgBJekHeA";
 
 // ── Services Data ─────────────────────────────────────────────────────────────
-export const servicesData = [
+export interface ServiceEntry {
+  name: string;
+  icon: LucideIcon;
+  tag: string;
+  category: string;
+  page?: string;
+  color: string;
+  description: string;
+  highlights: string[];
+}
+
+export const servicesData: ServiceEntry[] = [
   {
     name: "Google Workspace Automation",
     icon: Repeat,
     tag: "Automation",
     category: "Google Workspace",
+    page: "/google-apps-script-development",
     color: "blue",
     description:
       "Automate your entire business workflow inside Google Workspace \u2014 Sheets pipelines, Gmail triggers, Drive file management, Calendar scheduling, and cross-app automations using Apps Script.",
@@ -42,6 +54,7 @@ export const servicesData = [
     icon: LayoutDashboard,
     tag: "Development",
     category: "Google Workspace",
+    page: "/google-apps-script-development",
     color: "blue",
     description:
       "Build tailored applications \u2014 from full custom web apps using Google Apps Script to no-code mobile & web apps with AppSheet.",
@@ -57,6 +70,7 @@ export const servicesData = [
     icon: BarChart3,
     tag: "Analytics",
     category: "Google Workspace",
+    page: "/google-sheets-automation",
     color: "blue",
     description:
       "Turn raw business data into clear, actionable insights. Custom Looker Studio dashboards, automated reporting pipelines, KPI tracking systems.",
@@ -72,6 +86,7 @@ export const servicesData = [
     icon: MessageCircle,
     tag: "WhatsApp Meta",
     category: "WhatsApp",
+    page: "/whatsapp-business-api",
     color: "green",
     description:
       "Integrate the official WhatsApp Business Platform (Meta) into your operations. Send transactional messages, order confirmations, OTPs at scale.",
@@ -87,6 +102,7 @@ export const servicesData = [
     icon: Smartphone,
     tag: "WhatsApp API",
     category: "WhatsApp",
+    page: "/whatsapp-automation-services",
     color: "green",
     description:
       "High-volume, flexible WhatsApp messaging without Meta's approval process. Send bulk notifications, automate order updates, run chatbot workflows.",

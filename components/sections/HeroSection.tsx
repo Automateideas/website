@@ -47,13 +47,15 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
-        <div className="hero-image-frame reveal">
+        <div className="hero-image-frame">
           <Image
             src="/H2.png"
             alt="Automate Ideas"
             width={480}
             height={480}
             priority
+            fetchPriority="high"
+            sizes="(max-width: 768px) 90vw, 460px"
             className="relative w-full max-w-[460px]"
             style={{ zIndex: 1 }}
           />

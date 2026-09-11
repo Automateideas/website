@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Check } from "lucide-react";
 import {
   C,
@@ -114,6 +115,14 @@ export default function ServicesSection() {
                               </li>
                             ))}
                           </ul>
+                          {svc.page && (
+                            <Link
+                              href={svc.page}
+                              className="svc-card-link"
+                            >
+                              Learn more <span aria-hidden="true">→</span>
+                            </Link>
+                          )}
                         </div>
                       </>
                     ) : (
@@ -138,6 +147,14 @@ export default function ServicesSection() {
                             </li>
                           ))}
                         </ul>
+                        {svc.page && (
+                          <Link
+                            href={svc.page}
+                            className="svc-card-link"
+                          >
+                            Learn more <span aria-hidden="true">→</span>
+                          </Link>
+                        )}
                       </>
                     )}
                   </div>

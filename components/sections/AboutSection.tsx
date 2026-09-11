@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   aboutStats,
   coreValues,
@@ -66,6 +67,9 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
+          <Link href="/about" className="ab-story-link reveal">
+            Read our full story <span aria-hidden="true">→</span>
+          </Link>
         </div>
         <div className="ab-values">
           <div className="reveal">
