@@ -19,7 +19,7 @@ export default function AboutSection() {
             Who We Are
           </div>
           <h2 className="ab-hero-h1">
-            About <em>Us</em>
+            Our <em>Story</em>
           </h2>
           <p className="ab-hero-sub">
             A team of passionate Google Workspace automation experts committed
@@ -34,7 +34,7 @@ export default function AboutSection() {
           <div className="reveal">
             <div className="ab-section-eyebrow ab-ey-blue">
               <span className="ab-section-eyebrow-bar" />
-              Our Story
+              The Journey
             </div>
           </div>
           <div className="ab-story-block reveal">

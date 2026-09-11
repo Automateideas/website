@@ -13,8 +13,10 @@ const BOOK_CALL_URL = "https://calendar.app.google/tQGZDNw8JgBJekHeA";
 const navMenu = [
   { label: "Home", href: "/", sectionId: "hero" },
   { label: "Services", href: "/#services", sectionId: "services" },
+  { label: "Pricing", href: "/#pricing", sectionId: "pricing" },
   { label: "About Us", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq", sectionId: "faq" },
   { label: "Contact Us", href: "/#contact", sectionId: "contact" },
 ];
 

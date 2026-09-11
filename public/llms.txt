@@ -1,0 +1,54 @@
+# Automate Ideas
+
+> Automate Ideas is a Ghaziabad, India-based business automation agency that builds Google Workspace, Google Apps Script, Google Sheets, and WhatsApp automation for small and medium businesses — 50+ businesses automated across 6+ industries with 10x faster workflows.
+
+## Summary
+
+Automate Ideas is a business process automation agency founded by Amit Kumar, based in Nandgram, Ghaziabad, Uttar Pradesh, India. We eliminate repetitive manual work by building custom automations inside Google Workspace (Sheets, Gmail, Drive, Forms, Calendar) using Google Apps Script, and we set up both the official (Meta) WhatsApp Business Platform and unofficial WhatsApp API for high-volume messaging. Work is delivered in 1–3 weeks, per project, with no lock-in contracts.
+
+## Key facts
+
+- Location: Nandgram, Ghaziabad, Uttar Pradesh, India (serves clients across India and remotely)
+- Track record: 50+ businesses automated, 6+ industries served, 100% custom built
+- Delivery: most projects live within 1–3 weeks; fixed quotes after a free consultation
+- Pricing: project-based pricing; WhatsApp Business API (Meta) plans from ₹12,000/year; WhatsApp automation (unofficial API) from ₹2,499/year; no setup fees, cancel anytime, GST extra
+- Contact: amit23kumar04@gmail.com | +91 96255 98603 (phone & WhatsApp) | https://automateideas.in
+- Notable clients: Vercha Jewels, Copier World, Cranex Limited, Dhanvi Diamonds
+
+## Services
+
+- [Google Apps Script Development](https://automateideas.in/google-apps-script-development): Custom Google Workspace automation — Sheets pipelines, Gmail triggers, Drive document workflows, Calendar scheduling, custom web apps and CRM built with Apps Script.
+- [Google Sheets Automation](https://automateideas.in/google-sheets-automation): Automated spreadsheet reporting, live Looker Studio dashboards, KPI alerts, data consolidation, and email/WhatsApp notifications triggered from Google Sheets.
+- [WhatsApp Business API (Meta)](https://automateideas.in/whatsapp-business-api): Official Meta-verified WhatsApp Business Platform — transactional messages, OTPs, order updates, chatbots, and CRM/Google Sheets integration, from ₹12,000/year.
+- [WhatsApp Automation (Unofficial API)](https://automateideas.in/whatsapp-automation-services): High-volume WhatsApp messaging, broadcast campaigns, keyword-based chatbot flows, and Google Sheets/web-app integration, from ₹2,499/year.
+
+## Company pages
+
+- [About Us](https://automateideas.in/about): Founder, team, core values, and technology stack.
+- [Case Studies](https://automateideas.in/case-studies): Real client automation projects and outcomes.
+- [Home](https://automateideas.in): Business Automation Services — Automate Ideas.
+
+## Blog / Knowledge base
+
+- [What is Google Apps Script and what can you automate with it](https://automateideas.in/blog/google-apps-script-what-is-it-and-what-can-you-automate)
+- [Google Apps Script automation examples](https://automateideas.in/blog/google-apps-script-automation-examples)
+- [Build a Google Apps Script CRM](https://automateideas.in/blog/build-a-google-apps-script-crm)
+- [Google Sheets automation examples for business](https://automateideas.in/blog/google-sheets-automation-business-examples)
+- [Google Sheets formulas vs Apps Script](https://automateideas.in/blog/google-sheets-formulas-vs-apps-script)
+- [Auto-send emails from Google Sheets](https://automateideas.in/blog/auto-send-emails-from-google-sheets)
+- [Google Sheets to WhatsApp notifications](https://automateideas.in/blog/google-sheets-to-whatsapp-notifications)
+- [WhatsApp Business API pricing and setup](https://automateideas.in/blog/whatsapp-business-api-pricing-and-setup)
+- [WhatsApp message templates: headers vs marketing](https://automateideas.in/blog/whatsapp-messages-headers-or-marketing-template)
+- [Send bulk WhatsApp messages without getting blocked](https://automateideas.in/blog/send-bulk-whatsapp-messages-without-getting-blocked)
+- [WhatsApp Business API vs WhatsApp Business App](https://automateideas.in/blog/whatsapp-business-api-vs-whatsapp-for-business-app)
+- [Small business automation guide](https://automateideas.in/blog/small-business-automation-guide)
+
+## Contact
+
+- Email: amit23kumar04@gmail.com
+- Phone / WhatsApp: +91 96255 98603
+- Address: Nandgram, Ghaziabad, Uttar Pradesh, India
+
+## LLMs.txt
+
+A plain-text version of this file is always available at https://automateideas.in/llms.txt
