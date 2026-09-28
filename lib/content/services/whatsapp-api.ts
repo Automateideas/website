@@ -83,7 +83,7 @@ export const whatsappApiPage: ContentPageData = {
     {
       heading: "The WhatsApp Automation alternative",
       paragraphs: [
-        "If you don't need Meta verification and want maximum flexibility with bulk messaging and chatbot flows right now, we also offer [[WhatsApp automation on the unofficial API|/whatsapp-automation-services]]. It's faster to launch, cheaper for high-volume broadcast, and ideal for campaigns — with orders starting at ₹2,499/year.",
+        "If you don't need Meta verification and want maximum flexibility with bulk messaging and chatbot flows right now, we also offer [[WhatsApp automation on our custom API|/whatsapp-automation-services]]. It's faster to launch, cheaper for high-volume broadcast, and ideal for campaigns — with orders starting at ₹2,499/year.",
       ],
     },
   ],
@@ -113,7 +113,7 @@ export const whatsappApiPage: ContentPageData = {
     "Want a verified WhatsApp business account that sends messages automatically? [[Book a free call|https://calendar.app.google/tQGZDNw8JgBJekHeA]] and we'll map your setup in one sitting.",
   relatedLinks: [
     {
-      title: "WhatsApp Automation (Unofficial API)",
+      title: "WhatsApp Automation (Custom API)",
       href: "/whatsapp-automation-services",
       description: "Fast, flexible bulk messaging without Meta's approval process.",
     },

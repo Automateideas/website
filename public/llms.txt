@@ -4,14 +4,14 @@
 
 ## Summary
 
-Automate Ideas is a business process automation agency founded by Amit Kumar, based in Nandgram, Ghaziabad, Uttar Pradesh, India. We eliminate repetitive manual work by building custom automations inside Google Workspace (Sheets, Gmail, Drive, Forms, Calendar) using Google Apps Script, and we set up both the official (Meta) WhatsApp Business Platform and unofficial WhatsApp API for high-volume messaging. Work is delivered in 1–3 weeks, per project, with no lock-in contracts.
+Automate Ideas is a business process automation agency founded by Amit Kumar, based in Nandgram, Ghaziabad, Uttar Pradesh, India. We eliminate repetitive manual work by building custom automations inside Google Workspace (Sheets, Gmail, Drive, Forms, Calendar) using Google Apps Script, and we set up both the official (Meta) WhatsApp Business Platform and our custom WhatsApp API for high-volume messaging. Work is delivered in 1–3 weeks, per project, with no lock-in contracts.
 
 ## Key facts
 
 - Location: Nandgram, Ghaziabad, Uttar Pradesh, India (serves clients across India and remotely)
 - Track record: 50+ businesses automated, 6+ industries served, 100% custom built
 - Delivery: most projects live within 1–3 weeks; fixed quotes after a free consultation
-- Pricing: project-based pricing; WhatsApp Business API (Meta) plans from ₹12,000/year; WhatsApp automation (unofficial API) from ₹2,499/year; no setup fees, cancel anytime, GST extra
+- Pricing: project-based pricing; WhatsApp Business API (Meta) plans from ₹12,000/year; WhatsApp automation (custom API) from ₹2,499/year; no setup fees, cancel anytime, GST extra
 - Contact: amit23kumar04@gmail.com | +91 96255 98603 (phone & WhatsApp) | https://automateideas.in
 - Notable clients: Vercha Jewels, Copier World, Cranex Limited, Dhanvi Diamonds
 
@@ -20,7 +20,7 @@ Automate Ideas is a business process automation agency founded by Amit Kumar, ba
 - [Google Apps Script Development](https://automateideas.in/google-apps-script-development): Custom Google Workspace automation — Sheets pipelines, Gmail triggers, Drive document workflows, Calendar scheduling, custom web apps and CRM built with Apps Script.
 - [Google Sheets Automation](https://automateideas.in/google-sheets-automation): Automated spreadsheet reporting, live Looker Studio dashboards, KPI alerts, data consolidation, and email/WhatsApp notifications triggered from Google Sheets.
 - [WhatsApp Business API (Meta)](https://automateideas.in/whatsapp-business-api): Official Meta-verified WhatsApp Business Platform — transactional messages, OTPs, order updates, chatbots, and CRM/Google Sheets integration, from ₹12,000/year.
-- [WhatsApp Automation (Unofficial API)](https://automateideas.in/whatsapp-automation-services): High-volume WhatsApp messaging, broadcast campaigns, keyword-based chatbot flows, and Google Sheets/web-app integration, from ₹2,499/year.
+- [WhatsApp Automation (Custom API)](https://automateideas.in/whatsapp-automation-services): High-volume WhatsApp messaging, broadcast campaigns, keyword-based chatbot flows, and Google Sheets/web-app integration, from ₹2,499/year.
 
 ## Company pages
 

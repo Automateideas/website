@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContentPage from "@/components/ContentPage";
+import AboutPageView from "@/components/AboutPage";
 import { aboutPage } from "@/lib/content/about";
 import { pageJsonLd } from "@/lib/schema";
 
@@ -26,7 +26,7 @@ const jsonLd = pageJsonLd({
 export default function AboutPage() {
   return (
     <>
-      <ContentPage data={aboutPage} />
+      <AboutPageView data={aboutPage} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -98,7 +98,7 @@ export const servicesData: ServiceEntry[] = [
     ],
   },
   {
-    name: "WhatsApp Automation (Unofficial API)",
+    name: "WhatsApp Automation (Custom API)",
     icon: Smartphone,
     tag: "WhatsApp API",
     category: "WhatsApp",

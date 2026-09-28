@@ -72,7 +72,7 @@ export default function PricingSection() {
               <span className="pr-section-eyebrow-bar pr-bar-gold" />
               WhatsApp API Platform
             </div>
-            <h2 className="pr-plans-h2">Unofficial WhatsApp API Pricing</h2>
+            <h2 className="pr-plans-h2">Custom WhatsApp API Pricing</h2>
           </div>
           <p className="pr-plans-sub reveal">
             Fixed pricing for our WhatsApp API platform with enterprise-grade

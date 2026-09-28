@@ -7,7 +7,7 @@ export default function Loading() {
       style={{ background: "#fff", color: "#0f0f0e" }}
     >
       <Image
-        src="/Logo.png"
+        src="/logo/Logo.png"
         alt="Automate Ideas"
         width={64}
         height={64}

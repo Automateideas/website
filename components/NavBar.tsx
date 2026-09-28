@@ -215,7 +215,7 @@ function NavBar() {
                 onClick={() => setOpen(false)}
               >
                 <Image
-                  src="/Logo.png"
+                  src="/logo/Logo.png"
                   alt="Automate Ideas"
                   width={26}
                   height={26}

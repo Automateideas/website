@@ -1,5 +1,15 @@
+export type ContentBlockStyle =
+  | "prose"
+  | "split"
+  | "founder"
+  | "values"
+  | "chips"
+  | "links";
+
 export interface ContentBlock {
   heading: string;
+  style?: ContentBlockStyle;
+  image?: string;
   paragraphs?: string[];
   list?: { ordered?: boolean; items: string[] };
   table?: { headers: string[]; rows: string[][] };
@@ -26,6 +36,12 @@ export interface StatBanner {
   value: string;
 }
 
+export interface MissionVision {
+  label: string;
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface ContentPageData {
   type?: "page" | "blog" | "case-study";
   eyebrow: string;
@@ -40,6 +56,7 @@ export interface ContentPageData {
   keywords?: string[];
   metaChips?: { label: string; value: string }[];
   stats?: StatBanner[];
+  missionVision?: MissionVision[];
   sections: ContentBlock[];
   faq?: FaqItem[];
   ctaNote?: string;
