@@ -4,13 +4,13 @@
     --border: #e9e7e1;
   }
 
-  /* Positions above the call FAB (54px mobile / 60px desktop) */
+  /* Positions above the call FAB (48px mobile / 60px desktop) */
   .btt-btn {
     position: fixed;
-    right: 1.5rem;
-    bottom: calc(1.5rem + 54px + 0.9rem);
+    right: 1rem;
+    bottom: calc(1rem + 48px + 0.75rem);
     z-index: 45;
-    width: 46px; height: 46px;
+    width: 42px; height: 42px;
     border-radius: 50%;
     background: var(--ink);
     color: #ffffff;

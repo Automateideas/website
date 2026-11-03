@@ -60,10 +60,10 @@ const services = [
 const contactPoints = [
   {
     label: "Email us",
-    value: "amit23kumar04@gmail.com",
+    value: "automation@automateideas.in",
     icon: "/logo/gmail.svg",
   },
-  { label: "Call us", value: "+91 96255 98603", icon: "/logo/call.svg" },
+  { label: "Call us", value: "+91 96255 98603", icon: "/logo/Call.svg" },
 ];
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -145,7 +145,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={
-                  src === "/x.svg"
+                  src === "/logo/x_dark.svg"
                     ? "ft-social-link ft-social-link-x"
                     : "ft-social-link"
                 }

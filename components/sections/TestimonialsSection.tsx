@@ -5,7 +5,6 @@ import { testimonials } from "@/lib/site-data";
 
 const InfiniteMovingCards = dynamic(
   () => import("@/components/InfiniteMovingCards"),
-  { ssr: false },
 );
 
 export default function TestimonialsSection() {

@@ -13,6 +13,7 @@ export const whatsappAutoPage: ContentPageData = {
     "WhatsApp chatbot development",
     "lead automation",
     "WhatsApp CRM integration",
+    "live chat automation",
   ],
   stats: [
     { label: "Plan from", value: "₹2,499" },

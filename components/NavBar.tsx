@@ -135,7 +135,7 @@ function NavBar() {
 
   return (
     <>
-      <header className={`nb-header${scrolled ? "nb-scrolled" : ""}`}>
+      <header className={`nb-header${scrolled ? " nb-scrolled" : ""}`}>
         <div className="nb-inner">
           {/* ── Logo ── */}
           <Link href="/" className="nb-logo">
@@ -165,7 +165,7 @@ function NavBar() {
                   onClick={(e) =>
                     item.sectionId && scrollToSection(e, item.sectionId)
                   }
-                  className={`nb-link${active ? "nb-active" : ""}`}
+                  className={`nb-link${active ? " nb-active" : ""}`}
                 >
                   {item.label}
                 </Link>
@@ -240,7 +240,7 @@ function NavBar() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`nb-drawer-link${active ? "nb-drawer-active" : ""}`}
+                    className={`nb-drawer-link${active ? " nb-drawer-active" : ""}`}
                     onClick={(e) => {
                       if (item.sectionId) {
                         scrollToSection(e, item.sectionId);

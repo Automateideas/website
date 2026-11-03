@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import {
   COOKIE_SETTINGS_EVENT,
+  applyConsentMode,
   getConsent,
-  hasConsent,
   saveConsent,
   type ConsentChoice,
 } from "@/lib/consent";
@@ -24,7 +24,8 @@ export default function CookieConsent() {
     };
     window.addEventListener(COOKIE_SETTINGS_EVENT, onRequest);
 
-    if (!hasConsent()) {
+    const stored = getConsent();
+    if (!stored) {
       // Small delay so the page paints first.
       const t = setTimeout(() => setMode("banner"), 800);
       return () => {
@@ -32,6 +33,13 @@ export default function CookieConsent() {
         window.removeEventListener(COOKIE_SETTINGS_EVENT, onRequest);
       };
     }
+
+    // Consent Mode defaults to "denied" on every page load (see the
+    // beforeInteractive script in layout.tsx), so a returning visitor's stored
+    // choice has to be replayed here. Without this their earlier "accept"
+    // never reaches GTM and analytics stays blocked for good.
+    applyConsentMode(stored);
+
     return () => window.removeEventListener(COOKIE_SETTINGS_EVENT, onRequest);
   }, []);
 

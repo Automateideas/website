@@ -65,6 +65,15 @@
     .hero { grid-template-columns: 1fr; padding: 5.5rem 1.5rem 3rem; gap: 2.5rem; }
     .hero-image-frame { justify-content: center; }
   }
+  /* The hero art is square, so at full container width it costs ~330px of
+     vertical space on a phone and buries the CTAs. Cap it instead. */
+  @media(max-width: 600px) {
+    .hero { padding-top: 4.75rem; gap: 2rem; }
+    .hero-image-frame img { max-width: 280px; }
+  }
+  @media(max-width: 420px) {
+    .hero-image-frame img { max-width: 225px; }
+  }
   .hero::before {
     content: '';
     position: absolute;
@@ -190,9 +199,16 @@
     border-top: 1px solid var(--border);
     flex-wrap: wrap;
   }
-  @media(max-width: 480px) {
-    .hero-stats { gap: 1.75rem 2.5rem; }
-    .hero-stat-label { max-width: 120px; }
+  @media(max-width: 600px) {
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.25rem;
+      padding-top: 1.5rem;
+    }
+    .hero-stat-num { font-size: 1.6rem; }
+    .hero-stat-label { max-width: none; font-size: 0.72rem; line-height: 1.35; }
   }
   .hero-stat-num {
     font-family: var(--font-display);
@@ -1266,11 +1282,36 @@
     line-height: 1.7; margin: 0.5rem 0 1.5rem; max-width: 620px;
     font-weight: 400;
   }
+  /* Mobile-only nudge: the table is 720px wide inside a ~320px column, and
+     without a cue the clipped headers just look broken. */
+  .mw-table-hint { display: none; }
+  @media (max-width: 760px) {
+    .mw-table-hint {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.02em;
+    }
+  }
   .mw-table-wrap {
     overflow-x: auto;
     border: 1px solid var(--border);
     border-radius: 14px;
     background: var(--white);
+    /* Scroll shadows. The two "local" layers travel with the content and cover
+       the two fixed "scroll" layers only once that edge is reached, so the
+       shadow shows exactly while there is more table to swipe to. */
+    background-image:
+      linear-gradient(to right, var(--white), rgba(255, 255, 255, 0)),
+      linear-gradient(to left,  var(--white), rgba(255, 255, 255, 0)),
+      linear-gradient(to right, rgba(15, 15, 14, 0.13), rgba(15, 15, 14, 0)),
+      linear-gradient(to left,  rgba(15, 15, 14, 0.13), rgba(15, 15, 14, 0));
+    background-position: left center, right center, left center, right center;
+    background-repeat: no-repeat;
+    background-size: 28px 100%, 28px 100%, 12px 100%, 12px 100%;
+    background-attachment: local, local, scroll, scroll;
   }
   .mw-table { width: 100%; border-collapse: collapse; min-width: 720px; }
   .mw-table th, .mw-table td {

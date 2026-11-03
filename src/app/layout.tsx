@@ -12,7 +12,7 @@ import { BackToTop } from "@/components/ui/BackToTop";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { faqItems } from "@/lib/site-data";
+import { faqItems, testimonials } from "@/lib/site-data";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -39,7 +39,8 @@ const dmSerifDisplay = DM_Serif_Display({
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://automateideas.in";
 const SITE_NAME = "Automate Ideas";
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
+const CONTACT_EMAIL =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "automation@automateideas.in";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 const socials = [
@@ -74,6 +75,10 @@ export const metadata: Metadata = {
     "business automation company India",
     "business automation",
     "workflow automation India",
+    "business task automation",
+    "automate business tasks",
+    "automate business operations",
+    "business automation solutions",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -156,10 +161,42 @@ const structuredData = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
+      description:
+        "Business automation company in India offering Google Workspace automation, Google Apps Script development, Google Sheets automation, and WhatsApp Business API integration.",
       email: CONTACT_EMAIL,
       telephone: "+919625598603",
       logo: { "@type": "ImageObject", url: `${SITE_URL}/logo/Logo.png` },
       sameAs: socials,
+      foundingDate: "2024",
+      founder: {
+        "@type": "Person",
+        name: "Amit Kumar",
+        jobTitle: "Founder & Lead Developer",
+        url: `${SITE_URL}/about`,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        telephone: "+919625598603",
+        email: CONTACT_EMAIL,
+        areaServed: "IN",
+        availableLanguage: ["en", "hi"],
+      },
+      // Client testimonials, named so answer engines can attribute them.
+      // Deliberately no reviewRating / aggregateRating: no numeric rating was
+      // ever collected from these clients (the five stars on the cards are
+      // decoration), and inventing one would breach Google’s review
+      // guidelines. Self-published reviews are not eligible for review rich
+      // results either way — the value here is machine-readable attribution.
+      review: testimonials.map((t) => ({
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: t.name,
+          worksFor: { "@type": "Organization", name: t.title },
+        },
+        reviewBody: t.quote,
+      })),
       address: {
         "@type": "PostalAddress",
         addressLocality: "Nandgram, Ghaziabad",
@@ -199,7 +236,22 @@ const structuredData = {
         addressCountry: "IN",
       },
       areaServed: "IN",
-      priceRange: "$$",
+      priceRange: "$",
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "10:00",
+          closes: "19:00",
+        },
+      ],
     },
     // AEO/GEO: FAQPage schema — answer engines (Google AI Overviews,
     // Perplexity, ChatGPT browsing, Gemini) frequently lift Q&A pairs
@@ -278,7 +330,10 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
       </head>
       <body
-        className={`${dmSans.variable} ${dmSerifDisplay.variable} ${syne.variable} ${dmSans.className} h-screen w-full bg-[--color-background] text-[--color-foreground] antialiased`}
+        cz-shortcut-listen="true"
+        data-new-gr-c-s-check-loaded="14.1344.0"
+        data-gr-ext-installed=""
+        className={`${dmSans.variable} ${dmSerifDisplay.variable} ${syne.variable} ${dmSans.className} bg-background text-foreground h-screen w-full antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         {GTM_ID && (

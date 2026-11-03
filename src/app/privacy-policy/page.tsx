@@ -104,7 +104,7 @@ export default function PrivacyPolicyPage() {
           paragraphs: [
             "If you have questions, concerns, or requests about this Privacy Policy or how your data is handled, you can reach us at:",
             "Automate Ideas, Nandgram, Ghaziabad, Uttar Pradesh, India.",
-            `By phone at +91 96255 98603, or by email at amit23kumar04@gmail.com. We will respond within one business day.`,
+            `By phone at +91 96255 98603, or by email at automation@automateideas.in. We will respond within one business day.`,
           ],
         },
       ]}

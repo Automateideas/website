@@ -13,6 +13,8 @@ export const whatsappApiPage: ContentPageData = {
     "WhatsApp chatbot development",
     "WhatsApp CRM integration",
     "WhatsApp automation services",
+    "chat automation",
+    "WhatsApp quote message",
   ],
   stats: [
     { label: "Official platform", value: "Meta" },

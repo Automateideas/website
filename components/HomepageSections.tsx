@@ -14,12 +14,13 @@ const ContactSection = dynamic(() => import("@/components/sections/ContactSectio
 const EcosystemSection = dynamic(() => import("@/components/sections/EcosystemSection"), {
   ssr: false,
 });
-const CtaBand = dynamic(() => import("@/components/sections/CtaBand"), {
-  ssr: false,
-});
+// Server-rendered on purpose: the client names, companies and quotes in these
+// two sections have to reach crawlers that do not execute JavaScript (GPTBot,
+// PerplexityBot, Bingbot). dynamic() still code-splits their JS; only ssr:false
+// and the LazySection wrapper would have kept them out of the HTML.
+const CtaBand = dynamic(() => import("@/components/sections/CtaBand"));
 const TestimonialsSection = dynamic(
   () => import("@/components/sections/TestimonialsSection"),
-  { ssr: false },
 );
 
 export default function HomepageSections() {
@@ -30,13 +31,9 @@ export default function HomepageSections() {
         <EcosystemSection />
       </LazySection>
       <EmailSection />
-      <LazySection minHeight="180px">
-        <CtaBand />
-      </LazySection>
+      <CtaBand />
       <ServicesSection />
-      <LazySection minHeight="420px">
-        <TestimonialsSection />
-      </LazySection>
+      <TestimonialsSection />
       <PricingSection />
       <AboutSection />
       <FaqSection />

@@ -133,6 +133,7 @@ export default function MetaWhatsAppPricing() {
           perfect solution that matches your business requirements and team
           size.
         </p>
+        <div className="mw-table-hint">Swipe to compare all plans {"→"}</div>
         <div className="mw-table-wrap">
           <table className="mw-table">
             <thead>

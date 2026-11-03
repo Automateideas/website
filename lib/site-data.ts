@@ -683,7 +683,7 @@ export const contactItems = [
   {
     label: "Call Us",
     value: "+91 9625598603",
-    icon: "/logo/call.svg",
+    icon: "/logo/Call.svg",
     href: "tel:+919625598603",
   },
   {
@@ -694,9 +694,9 @@ export const contactItems = [
   },
   {
     label: "Email Us",
-    value: "amit23kumar04@gmail.com",
+    value: "automation@automateideas.in",
     icon: "/logo/gmail.svg",
-    href: "mailto:amit23kumar04@gmail.com",
+    href: "mailto:automation@automateideas.in",
   },
 ];
 
@@ -742,7 +742,7 @@ export const testimonials = [
       "Invoicing was a nightmare before \u2014 slow, error-prone, and manual. Now PDFs are generated and emailed instantly. We save hours every week.",
     name: "Raghbir Singh",
     title: "RAGHBIR ERECTORS & FABRICATORS",
-    image: "/testimonial/Raghbir.png",
+    image: "/testimonial/raghbir.png",
   },
   {
     quote:

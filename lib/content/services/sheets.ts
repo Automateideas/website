@@ -15,6 +15,11 @@ export const sheetsPage: ContentPageData = {
     "invoice automation",
     "workflow automation",
     "Google Sheets CRM",
+    "form automation",
+    "automated form",
+    "Google Forms automation",
+    "export leads",
+    "automate accounts",
   ],
   stats: [
     { label: "Hours saved weekly", value: "10+" },

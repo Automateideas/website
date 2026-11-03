@@ -51,8 +51,8 @@ export default function HeroSection() {
           <Image
             src="/H2.png"
             alt="Automate Ideas"
-            width={480}
-            height={480}
+            width={1024}
+            height={1536}
             priority
             fetchPriority="high"
             sizes="(max-width: 768px) 90vw, 460px"

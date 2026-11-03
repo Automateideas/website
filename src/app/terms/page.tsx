@@ -107,7 +107,7 @@ export default function TermsPage() {
           paragraphs: [
             "If you have any questions about these Terms of Use, please contact us at:",
             "Automate Ideas, Nandgram, Ghaziabad, Uttar Pradesh, India.",
-            `By phone at +91 96255 98603, or by email at amit23kumar04@gmail.com.`,
+            `By phone at +91 96255 98603, or by email at automation@automateideas.in.`,
           ],
         },
       ]}
