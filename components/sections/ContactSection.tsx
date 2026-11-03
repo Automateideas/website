@@ -23,6 +23,8 @@ const EMPTY_FORM = {
   companySize: "",
   interestedIn: "",
   message: "",
+  // Honeypot — stays empty for real people. See the API route.
+  website: "",
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -174,6 +176,24 @@ export default function ContactSection() {
               <div className="ct-form-title">Send Us a Message</div>
             </div>
             <form onSubmit={handleSubmit} noValidate>
+              {/*
+                Honeypot. Positioned off-screen rather than display:none,
+                because plenty of form bots skip hidden inputs but will happily
+                fill a visible-to-the-DOM text field. Submissions that carry a
+                value here are dropped server-side.
+              */}
+              <div className="ct-hp" aria-hidden="true">
+                <label htmlFor="ct-website">Website</label>
+                <input
+                  id="ct-website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={set("website")}
+                />
+              </div>
               <div className="ct-form-grid">
                 <div className="ct-field">
                   <label className="ct-label" htmlFor="ct-name">

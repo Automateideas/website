@@ -6,6 +6,14 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+]?[\d\s().-]{7,20}$/;
 const MAX_FIELD_LENGTH = 2000;
 
+// Upstream is a Google Apps Script web app; without a cap a slow one would
+// hold the function open until the platform kills it.
+const UPSTREAM_TIMEOUT_MS = 10_000;
+
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_ENTRIES = 5_000;
+
 interface ContactPayload {
   name?: string;
   contactNo?: string;
@@ -15,6 +23,47 @@ interface ContactPayload {
   companySize?: string;
   interestedIn?: string;
   message?: string;
+  // Honeypot. Hidden from people, irresistible to form bots.
+  website?: string;
+}
+
+/**
+ * Per-IP throttle held in module memory.
+ *
+ * Caveat worth knowing: on serverless each instance keeps its own Map, so a
+ * spread-out flood can still get through more than RATE_LIMIT_MAX in total.
+ * It stops the common case — one script hammering the endpoint — without
+ * adding a datastore. Move this to Vercel KV / Upstash if abuse continues.
+ */
+const hits = new Map<string, { count: number; resetAt: number }>();
+
+function prune(now: number) {
+  for (const [key, entry] of hits) {
+    if (entry.resetAt <= now) hits.delete(key);
+  }
+  // Hard ceiling so a spray of unique IPs cannot grow this without bound.
+  if (hits.size > RATE_LIMIT_MAX_ENTRIES) hits.clear();
+}
+
+function clientIp(request: NextRequest): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0]!.trim();
+  return request.headers.get("x-real-ip")?.trim() || "unknown";
+}
+
+function rateLimited(request: NextRequest): boolean {
+  const now = Date.now();
+  prune(now);
+
+  const ip = clientIp(request);
+  const entry = hits.get(ip);
+
+  if (!entry || entry.resetAt <= now) {
+    hits.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  entry.count += 1;
+  return entry.count > RATE_LIMIT_MAX;
 }
 
 function asTrimmedString(value: unknown): string {
@@ -51,6 +100,19 @@ function validations(payload: ContactPayload) {
 
 export async function POST(request: NextRequest) {
   try {
+    if (rateLimited(request)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Too many requests. Please wait a few minutes and try again.",
+        },
+        {
+          status: StatusCodes.TOO_MANY_REQUESTS,
+          headers: { "Retry-After": String(RATE_LIMIT_WINDOW_MS / 1000) },
+        },
+      );
+    }
+
     let data: ContactPayload;
     try {
       data = (await request.json()) as ContactPayload;
@@ -68,6 +130,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Honeypot tripped. Answer exactly like a success so the bot has nothing
+    // to learn from, and forward nothing.
+    if (asTrimmedString(data.website)) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
     const error = validations(data);
     if (error) {
       return NextResponse.json(
@@ -76,7 +144,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Rebuild a clean, trimmed payload so nothing extra is forwarded.
+    // Rebuild a clean, trimmed payload so nothing extra (the honeypot
+    // included) is forwarded.
     const clean = {
       name: asTrimmedString(data.name),
       contactNo: asTrimmedString(data.contactNo),
@@ -91,84 +160,42 @@ export async function POST(request: NextRequest) {
     if (!process.env.GOOGLE_APPS_SCRIPT_URL) {
       console.error("GOOGLE_APPS_SCRIPT_URL is not defined");
       return NextResponse.json(
-        { error: "Google Apps Script URL not configured" },
-        { status: 500 },
+        { success: false, error: "Failed to submit form. Please try again." },
+        { status: StatusCodes.INTERNAL_SERVER_ERROR },
       );
     }
 
-    const response = await axios.post(
-      process.env.GOOGLE_APPS_SCRIPT_URL,
-      clean,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-    );
+    await axios.post(process.env.GOOGLE_APPS_SCRIPT_URL, clean, {
+      headers: { "Content-Type": "application/json" },
+      timeout: UPSTREAM_TIMEOUT_MS,
+    });
 
-    return NextResponse.json(
-      { success: true, result: response.data },
-      { status: 200 },
-    );
+    // The upstream body is not echoed back: it is an internal Apps Script
+    // response and the browser has no use for it.
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err: unknown) {
-    if (typeof err === "object" && err !== null && "response" in err) {
-      const axiosError = err as {
-        response?: {
-          data?: { message?: string };
-          status?: number;
-        };
-        message?: string;
-      };
-
+    // Log the detail server-side, tell the client nothing about the upstream.
+    if (axios.isAxiosError(err)) {
       console.error(
-        "Proxy error:",
-        axiosError.response?.data || axiosError.message,
+        "Contact proxy error:",
+        err.code,
+        err.response?.status,
+        err.response?.data ?? err.message,
       );
-
-      return NextResponse.json(
-        {
-          success: false,
-          error:
-            axiosError.response?.data?.message ||
-            "Failed to submit form. Please try again.",
-        },
-        {
-          status:
-            axiosError.response?.status || StatusCodes.INTERNAL_SERVER_ERROR,
-        },
-      );
+    } else {
+      console.error("Contact unexpected error:", err);
     }
 
-    console.error("Unexpected error:", err);
-
     return NextResponse.json(
-      {
-        success: false,
-        error: "An unexpected error occurred.",
-      },
-      { status: StatusCodes.INTERNAL_SERVER_ERROR },
+      { success: false, error: "Failed to submit form. Please try again." },
+      { status: StatusCodes.BAD_GATEWAY },
     );
   }
 }
 
 export async function GET() {
-  try {
-    return NextResponse.json(
-      {
-        message: "Contact API is working",
-        status: "healthy",
-        timestamp: new Date().toISOString(),
-      },
-      { status: StatusCodes.OK },
-    );
-  } catch (error) {
-    return NextResponse.json(
-      {
-        message: "Contact API health check failed",
-        status: "unhealthy",
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: StatusCodes.INTERNAL_SERVER_ERROR },
-    );
-  }
+  return NextResponse.json(
+    { status: "healthy" },
+    { status: StatusCodes.OK },
+  );
 }

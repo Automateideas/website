@@ -2118,3 +2118,13 @@
 }
 
 
+
+/* Honeypot wrapper — off-screen, never shown, never focusable. */
+.ct-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
