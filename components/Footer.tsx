@@ -6,7 +6,13 @@ import { openCookieSettings } from "@/lib/consent";
 import "./Footer.css";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const socialLinks = [
+const socialLinks: {
+  href: string;
+  src: string;
+  alt: string;
+  /** Mark is dark and needs a light badge to stay visible on the dark footer. */
+  onLightBadge?: boolean;
+}[] = [
   {
     href: "https://www.facebook.com/profile.php?id=61575991143624",
     src: "/logo/facebook.svg",
@@ -24,8 +30,10 @@ const socialLinks = [
   },
   {
     href: "https://x.com/automateideas",
-    src: "/logo/x_dark.svg",
+    src: "/logo/x.svg",
     alt: "X (Twitter)",
+    // X's mark is solid black (#000), invisible against the dark footer.
+    onLightBadge: true,
   },
   {
     href: "https://www.youtube.com/@AutomateIdeas",
@@ -138,14 +146,14 @@ function Footer() {
           </div>
 
           <div className="ft-socials">
-            {socialLinks.map(({ href, src, alt }) => (
+            {socialLinks.map(({ href, src, alt, onLightBadge }) => (
               <Link
                 key={href}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={
-                  src === "/logo/x_dark.svg"
+                  onLightBadge
                     ? "ft-social-link ft-social-link-x"
                     : "ft-social-link"
                 }
