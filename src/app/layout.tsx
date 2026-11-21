@@ -293,6 +293,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <head>
+        <meta name="msvalidate.01" content="2372E673C12F5E94C2D124164FD48251" />
         {/*
           Google Consent Mode v2 defaults — set to denied BEFORE any
           analytics/ads tag loads so nothing tracks until the visitor
