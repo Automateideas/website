@@ -6,7 +6,7 @@ export const whatsappApiPage: ContentPageData = {
   title: "WhatsApp Business API",
   subtitle:
     "Go official with Meta's WhatsApp Business Platform — verify your business, send transactional messages, OTPs, order updates, and automated chatbot flows at scale, with a green-tick account your customers can trust.",
-  breadcrumbs: [{ label: "Services" }],
+  breadcrumbs: [{ label: "Services", href: "/#services" }],
   keywords: [
     "WhatsApp Business API integration",
     "WhatsApp Business API India",

@@ -12,7 +12,7 @@ import { BackToTop } from "@/components/ui/BackToTop";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { faqItems, testimonials } from "@/lib/site-data";
+import { testimonials } from "@/lib/site-data";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -236,6 +236,7 @@ const structuredData = {
         addressCountry: "IN",
       },
       areaServed: "IN",
+      sameAs: socials,
       priceRange: "$",
       openingHoursSpecification: [
         {
@@ -252,35 +253,6 @@ const structuredData = {
           closes: "19:00",
         },
       ],
-    },
-    // AEO/GEO: FAQPage schema — answer engines (Google AI Overviews,
-    // Perplexity, ChatGPT browsing, Gemini) frequently lift Q&A pairs
-    // like this directly into generated answers. Content is read from
-    // lib/site-data `faqItems` so it always matches the on-page FAQ.
-    {
-      "@type": "FAQPage",
-      "@id": `${SITE_URL}/#faq`,
-      mainEntity: faqItems.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.a,
-        },
-      })),
-    },
-    // AEO/GEO: Speakable — signals which content is suited for
-    // voice/AI assistant readout.
-    {
-      "@type": "WebPage",
-      "@id": `${SITE_URL}/#webpage`,
-      url: SITE_URL,
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: ["h1", ".hero-sub"],
-      },
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      about: { "@id": `${SITE_URL}/#organization` },
     },
   ],
 };

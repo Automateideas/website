@@ -6,7 +6,7 @@ export const sheetsPage: ContentPageData = {
   title: "Google Sheets Automation",
   subtitle:
     "Turn spreadsheets from manual data-entry jobs into self-updating systems — live dashboards, auto-generated invoices, inventory and attendance trackers, and reporting pipelines that build themselves.",
-  breadcrumbs: [{ label: "Services" }],
+  breadcrumbs: [{ label: "Services", href: "/#services" }],
   keywords: [
     "Google Sheets automation services",
     "Google Sheets automation",

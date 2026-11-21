@@ -21,7 +21,6 @@ const jsonLd = pageJsonLd({
   data: appsScriptPage,
   path: "/google-apps-script-development",
   image: "/automate-ideas-card.png",
-  offersPrice: "Custom",
 });
 
 export default function AppsScriptDevelopmentPage() {

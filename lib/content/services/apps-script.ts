@@ -6,7 +6,7 @@ export const appsScriptPage: ContentPageData = {
   title: "Google Apps Script Development",
   subtitle:
     "Custom automation and web apps built on Google Apps Script — connecting Sheets, Gmail, Drive, Docs, Calendar, and Forms into one streamlined system that runs your business on autopilot.",
-  breadcrumbs: [{ label: "Services" }],
+  breadcrumbs: [{ label: "Services", href: "/#services" }],
   keywords: [
     "Google Apps Script development",
     "Apps Script developer",

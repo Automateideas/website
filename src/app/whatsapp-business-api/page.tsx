@@ -21,7 +21,7 @@ const jsonLd = pageJsonLd({
   data: whatsappApiPage,
   path: "/whatsapp-business-api",
   image: "/automate-ideas-card.png",
-  offersPrice: "₹12,000",
+  offersPrice: "12000",
 });
 
 export default function WhatsAppBusinessApiPage() {

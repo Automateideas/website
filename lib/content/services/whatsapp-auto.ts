@@ -6,7 +6,7 @@ export const whatsappAutoPage: ContentPageData = {
   title: "WhatsApp Automation Services",
   subtitle:
     "Bulk WhatsApp messaging, chatbots, and order-update flows that launch fast and cost less — no Meta approval process, no waiting, no per-conversation fees. Plans start at ₹2,499/year.",
-  breadcrumbs: [{ label: "Services" }],
+  breadcrumbs: [{ label: "Services", href: "/#services" }],
   keywords: [
     "WhatsApp automation services",
     "bulk WhatsApp messaging",

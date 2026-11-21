@@ -23,16 +23,10 @@ interface PageSchemaParams {
 
 export function pageJsonLd({ type, data, path, image, offersPrice }: PageSchemaParams) {
   const url = `${SITE_URL}${path}`;
-  const graph: Record<string, unknown>[] = [
-    {
-      "@type": "Organization",
-      "@id": ORG_ID,
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo/Logo.png` },
-      telephone: "+919625598603",
-    },
-  ];
+  // No Organization node here: the root layout already emits a complete one
+  // under this same @id on every page. Two nodes sharing an @id with different
+  // properties is a conflict, not a merge. Reference it instead.
+  const graph: Record<string, unknown>[] = [];
 
   const main: Record<string, unknown> = {
     "@id": `${url}#root`,
@@ -52,12 +46,19 @@ export function pageJsonLd({ type, data, path, image, offersPrice }: PageSchemaP
       serviceType: data.title,
       provider: { "@id": ORG_ID },
       areaServed: { "@type": "Country", name: "IN" },
-      offers: {
-        "@type": "Offer",
-        price: offersPrice ?? "Custom",
-        priceCurrency: "INR",
-        url,
-      },
+      // schema.org requires a numeric price: no currency symbol, no thousands
+      // separator. Pages without a fixed price simply get no Offer rather than
+      // an invalid one.
+      ...(offersPrice
+        ? {
+            offers: {
+              "@type": "Offer",
+              price: offersPrice,
+              priceCurrency: "INR",
+              url,
+            },
+          }
+        : {}),
       image: image ? { "@type": "ImageObject", url: `${SITE_URL}${image}` } : undefined,
     });
   } else if (type === "BlogPosting") {
@@ -96,24 +97,32 @@ export function pageJsonLd({ type, data, path, image, offersPrice }: PageSchemaP
 
   graph.push(main);
 
+  // Full trail: site root -> section crumbs -> this page.
+  //
+  // The previous version filtered out every crumb without an href, which
+  // collapsed a three-level service breadcrumb ("Automate Ideas > Services >
+  // Google Sheets Automation") down to a single useless item, and never
+  // included the current page at all. Skip the trailing self-crumb when the
+  // last breadcrumb already points at this path, so index pages do not list
+  // themselves twice.
+  const lastCrumb = data.breadcrumbs[data.breadcrumbs.length - 1];
+  const trail: { name: string; item?: string }[] = [
+    { name: SITE_NAME, item: SITE_URL },
+    ...data.breadcrumbs.map((b) => ({
+      name: b.label,
+      item: b.href ? `${SITE_URL}${b.href}` : undefined,
+    })),
+    ...(lastCrumb?.href === path ? [] : [{ name: data.title, item: url }]),
+  ];
+
   graph.push({
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: SITE_NAME,
-        item: SITE_URL,
-      },
-      ...data.breadcrumbs.flatMap((b, i) => [
-        {
-          "@type": "ListItem",
-          position: i + 2,
-          name: b.label,
-          item: b.href ? `${SITE_URL}${b.href}` : undefined,
-        },
-      ]),
-    ].filter((item) => item.item),
+    itemListElement: trail.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      ...(c.item ? { item: c.item } : {}),
+    })),
   });
 
   if (data.faq && data.faq.length > 0) {

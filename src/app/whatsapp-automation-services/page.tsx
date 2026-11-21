@@ -21,7 +21,7 @@ const jsonLd = pageJsonLd({
   data: whatsappAutoPage,
   path: "/whatsapp-automation-services",
   image: "/automate-ideas-card.png",
-  offersPrice: "₹2,499",
+  offersPrice: "2499",
 });
 
 export default function WhatsAppAutomationPage() {

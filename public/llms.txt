@@ -12,6 +12,7 @@ Automate Ideas is a business process automation agency founded by Amit Kumar, ba
 - Track record: 50+ businesses automated, 6+ industries served, 100% custom built
 - Delivery: most projects live within 1–3 weeks; fixed quotes after a free consultation
 - Pricing: project-based pricing; WhatsApp Business API (Meta) plans from ₹12,000/year; WhatsApp automation (custom API) from ₹2,499/year; no setup fees, cancel anytime, GST extra
+- Full machine-readable pricing: https://automateideas.in/pricing.md
 - Contact: automation@automateideas.in | +91 96255 98603 (phone & WhatsApp) | https://automateideas.in
 - Notable clients: Vercha Jewels, Copier World, Cranex Limited, Dhanvi Diamonds
 

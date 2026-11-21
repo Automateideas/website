@@ -21,7 +21,6 @@ const jsonLd = pageJsonLd({
   data: sheetsPage,
   path: "/google-sheets-automation",
   image: "/automate-ideas-card.png",
-  offersPrice: "Custom",
 });
 
 export default function SheetsAutomationPage() {
