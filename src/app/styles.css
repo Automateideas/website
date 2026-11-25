@@ -12,6 +12,7 @@
     --blue:    #1a56db;
     --gold:    #c98a06;
     --green:   #16a34a;
+    --violet:  #6d28d9;
     --shadow-sm: 0 1px 3px rgba(15,15,14,0.06), 0 1px 2px rgba(15,15,14,0.04);
     --shadow-md: 0 4px 16px rgba(15,15,14,0.08), 0 2px 6px rgba(15,15,14,0.05);
     --shadow-lg: 0 16px 48px rgba(15,15,14,0.11), 0 4px 16px rgba(15,15,14,0.06);
@@ -585,6 +586,7 @@
   .svc-cat-tab:hover { color: var(--ink); }
   .svc-tab-blue:hover,  .svc-tab-blue.active  { color: var(--blue);   border-color: var(--blue); }
   .svc-tab-green:hover, .svc-tab-green.active { color: var(--green);  border-color: var(--green); }
+  .svc-tab-violet:hover, .svc-tab-violet.active { color: var(--violet); border-color: var(--violet); }
   .svc-tab-gold:hover,  .svc-tab-gold.active  { color: var(--gold);   border-color: var(--gold); }
   .svc-tab-red:hover,   .svc-tab-red.active   { color: var(--accent); border-color: var(--accent); }
   .svc-cat-count {
@@ -595,6 +597,7 @@
   }
   .svc-count-blue  { background: rgba(26,86,219,0.09);  color: var(--blue); }
   .svc-count-green { background: rgba(22,163,74,0.09);  color: var(--green); }
+  .svc-count-violet { background: rgba(109,40,217,0.09); color: var(--violet); }
   .svc-count-gold  { background: rgba(201,138,6,0.09);  color: var(--gold); }
   .svc-count-red   { background: rgba(232,57,14,0.09);  color: var(--accent); }
 
@@ -621,6 +624,7 @@
   .svc-sec-eyebrow-bar { width: 1.8rem; height: 1.5px; border-radius: 2px; flex-shrink: 0; }
   .svc-ey-blue  { color: var(--blue);   } .svc-ey-blue  .svc-sec-eyebrow-bar { background: var(--blue); }
   .svc-ey-green { color: var(--green);  } .svc-ey-green .svc-sec-eyebrow-bar { background: var(--green); }
+  .svc-ey-violet { color: var(--violet); } .svc-ey-violet .svc-sec-eyebrow-bar { background: var(--violet); }
   .svc-ey-gold  { color: var(--gold);   } .svc-ey-gold  .svc-sec-eyebrow-bar { background: var(--gold); }
   .svc-ey-red   { color: var(--accent); } .svc-ey-red   .svc-sec-eyebrow-bar { background: var(--accent); }
   .svc-cat-h2 {
@@ -664,6 +668,7 @@
   }
   .svc-card.c-blue:hover  { border-color: var(--blue); }
   .svc-card.c-green:hover { border-color: var(--green); }
+  .svc-card.c-violet:hover { border-color: var(--violet); }
   .svc-card.c-gold:hover  { border-color: var(--gold); }
   .svc-card.c-red:hover   { border-color: var(--accent); }
   .svc-card::before {
@@ -675,6 +680,7 @@
   .svc-card:hover::before { opacity: 1; }
   .c-blue::before  { background: linear-gradient(90deg, var(--blue), rgba(26,86,219,0.3)); }
   .c-green::before { background: linear-gradient(90deg, var(--green), rgba(22,163,74,0.3)); }
+  .c-violet::before { background: linear-gradient(90deg, var(--violet), rgba(109,40,217,0.3)); }
   .c-gold::before  { background: linear-gradient(90deg, var(--gold), rgba(201,138,6,0.3)); }
   .c-red::before   { background: linear-gradient(90deg, var(--accent), rgba(232,57,14,0.3)); }
   .svc-num {
@@ -685,6 +691,7 @@
   }
   .n-blue  { color: rgba(26,86,219,0.05); }
   .n-green { color: rgba(22,163,74,0.05); }
+  .n-violet { color: rgba(109,40,217,0.05); }
   .n-gold  { color: rgba(201,138,6,0.05); }
   .n-red   { color: rgba(232,57,14,0.05); }
   .svc-icon {
@@ -696,10 +703,12 @@
   .svc-icon svg { width: 18px; height: 18px; transition: color 0.22s; }
   .i-blue  { background: rgba(26,86,219,0.08); } .i-blue  svg { color: var(--blue); }
   .i-green { background: rgba(22,163,74,0.09); } .i-green svg { color: var(--green); }
+  .i-violet { background: rgba(109,40,217,0.09); } .i-violet svg { color: var(--violet); }
   .i-gold  { background: rgba(201,138,6,0.09); } .i-gold  svg { color: var(--gold); }
   .i-red   { background: rgba(232,57,14,0.07); } .i-red   svg { color: var(--accent); }
   .c-blue:hover  .i-blue  { background: var(--blue);   } .c-blue:hover  .i-blue  svg { color: #fff; }
   .c-green:hover .i-green { background: var(--green);  } .c-green:hover .i-green svg { color: #fff; }
+  .c-violet:hover .i-violet { background: var(--violet); } .c-violet:hover .i-violet svg { color: #fff; }
   .c-gold:hover  .i-gold  { background: var(--gold);   } .c-gold:hover  .i-gold  svg { color: #fff; }
   .c-red:hover   .i-red   { background: var(--accent); } .c-red:hover   .i-red   svg { color: #fff; }
   .svc-tag {
@@ -709,6 +718,7 @@
   }
   .t-blue  { color: var(--blue); }
   .t-green { color: var(--green); }
+  .t-violet { color: var(--violet); }
   .t-gold  { color: var(--gold); }
   .t-red   { color: var(--accent); }
   .svc-title {
@@ -747,6 +757,7 @@
   .svc-hi-check svg { width: 8px; height: 8px; }
   .hc-blue  { background: rgba(26,86,219,0.08); } .hc-blue  svg { color: var(--blue); }
   .hc-green { background: rgba(22,163,74,0.09); } .hc-green svg { color: var(--green); }
+  .hc-violet { background: rgba(109,40,217,0.09); } .hc-violet svg { color: var(--violet); }
   .hc-gold  { background: rgba(201,138,6,0.09); } .hc-gold  svg { color: var(--gold); }
   .hc-red   { background: rgba(232,57,14,0.07); } .hc-red   svg { color: var(--accent); }
   .svc-card.svc-wide {

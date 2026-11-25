@@ -18,6 +18,8 @@ const servicePages = [
   "/google-sheets-automation",
   "/whatsapp-business-api",
   "/whatsapp-automation-services",
+  "/custom-software-development",
+  "/website-development",
 ];
 
 const caseStudies = [

@@ -63,6 +63,8 @@ const services = [
   { label: "Google Sheets Automation", href: "/google-sheets-automation" },
   { label: "WhatsApp Business API", href: "/whatsapp-business-api" },
   { label: "WhatsApp Automation", href: "/whatsapp-automation-services" },
+  { label: "Custom Software Development", href: "/custom-software-development" },
+  { label: "Website Development", href: "/website-development" },
 ];
 
 const contactPoints = [

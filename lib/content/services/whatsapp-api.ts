@@ -115,6 +115,11 @@ export const whatsappApiPage: ContentPageData = {
     "Want a verified WhatsApp business account that sends messages automatically? [[Book a free call|https://calendar.app.google/tQGZDNw8JgBJekHeA]] and we'll map your setup in one sitting.",
   relatedLinks: [
     {
+      title: "Website Development",
+      href: "/website-development",
+      description: "A site that feeds the WhatsApp flows instead of sitting beside them.",
+    },
+    {
       title: "WhatsApp Automation (Custom API)",
       href: "/whatsapp-automation-services",
       description: "Fast, flexible bulk messaging without Meta's approval process.",

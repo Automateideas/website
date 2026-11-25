@@ -15,6 +15,8 @@ import {
   Star,
   LaptopMinimalCheck,
   Building2,
+  Code2,
+  Globe,
   type LucideIcon,
 } from "lucide-react";
 
@@ -188,6 +190,38 @@ export const servicesData: ServiceEntry[] = [
       "Priority ongoing support & maintenance",
     ],
   },
+  {
+    name: "Custom Software Development",
+    icon: Code2,
+    tag: "Development",
+    category: "Software & Web",
+    page: "/custom-software-development",
+    color: "violet",
+    description:
+      "Software built around how your business actually works — internal tools, dashboards, portals, and APIs, when a spreadsheet or an off-the-shelf product stops being enough.",
+    highlights: [
+      "Internal tools, admin panels & dashboards",
+      "Customer, vendor & partner portals",
+      "REST APIs and integrations between systems",
+      "Migration from spreadsheets to a real database",
+    ],
+  },
+  {
+    name: "Website Development",
+    icon: Globe,
+    tag: "Web",
+    category: "Software & Web",
+    page: "/website-development",
+    color: "violet",
+    description:
+      "Fast, search-ready business websites — marketing sites, landing pages, and catalogues built to load quickly, rank, and turn visitors into enquiries.",
+    highlights: [
+      "Business & marketing websites",
+      "Landing pages built to convert",
+      "SEO-ready structure, schema & sitemaps",
+      "Enquiry forms wired into Sheets or WhatsApp",
+    ],
+  },
 ];
 
 export const svcCategories = [
@@ -198,6 +232,14 @@ export const svcCategories = [
     color: "blue",
     desc: "The full power of Google Workspace \u2014 automated, extended, and customized for your exact business needs.",
     grid: "svc-grid-3",
+  },
+  {
+    id: "software-web",
+    label: "Software & Web",
+    eyebrow: "Custom Builds",
+    color: "violet",
+    desc: "When the off-the-shelf tool does not fit, we build the thing itself — custom software and websites, owned by you.",
+    grid: "svc-grid-2",
   },
   {
     id: "whatsapp",
@@ -272,6 +314,16 @@ export const C = {
     hc: "hc-red",
     tab: "svc-tab-red",
     count: "svc-count-red",
+  },
+  violet: {
+    ey: "svc-ey-violet",
+    card: "c-violet",
+    num: "n-violet",
+    icon: "i-violet",
+    tag: "t-violet",
+    hc: "hc-violet",
+    tab: "svc-tab-violet",
+    count: "svc-count-violet",
   },
 } as const;
 export type ColorKey = keyof typeof C;

@@ -129,6 +129,11 @@ export const appsScriptPage: ContentPageData = {
     "Have a process you copy-paste weekly? [[Book a free call|https://calendar.app.google/tQGZDNw8JgBJekHeA]] and we'll tell you in 20 minutes whether it can be automated — and what it would cost.",
   relatedLinks: [
     {
+      title: "Custom Software Development",
+      href: "/custom-software-development",
+      description: "When a process outgrows what Apps Script should be asked to do.",
+    },
+    {
       title: "Google Sheets Automation",
       href: "/google-sheets-automation",
       description: "Live dashboards, invoice generators, and self-updating trackers.",

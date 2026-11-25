@@ -109,6 +109,11 @@ export const whatsappAutoPage: ContentPageData = {
     "Need to reach 10,000 customers on WhatsApp next week? [[Book a free call|https://calendar.app.google/tQGZDNw8JgBJekHeA]] and we'll have a plan (and a price) for you today.",
   relatedLinks: [
     {
+      title: "Website Development",
+      href: "/website-development",
+      description: "Capture the enquiries before the WhatsApp flow picks them up.",
+    },
+    {
       title: "WhatsApp Business API (Meta)",
       href: "/whatsapp-business-api",
       description: "The official, verified route for transactional messaging.",

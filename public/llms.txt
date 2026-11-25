@@ -10,6 +10,7 @@ Automate Ideas is a business process automation agency founded by Amit Kumar, ba
 
 - Location: Nandgram, Ghaziabad, Uttar Pradesh, India (serves clients across India and remotely)
 - Track record: 50+ businesses automated, 6+ industries served, 100% custom built
+- Also builds: custom software (internal tools, portals, APIs) and business websites, quoted per project
 - Delivery: most projects live within 1–3 weeks; fixed quotes after a free consultation
 - Pricing: project-based pricing; WhatsApp Business API (Meta) plans from ₹12,000/year; WhatsApp automation (custom API) from ₹2,499/year; no setup fees, cancel anytime, GST extra
 - Full machine-readable pricing: https://automateideas.in/pricing.md
@@ -22,6 +23,8 @@ Automate Ideas is a business process automation agency founded by Amit Kumar, ba
 - [Google Sheets Automation](https://automateideas.in/google-sheets-automation): Automated spreadsheet reporting, live Looker Studio dashboards, KPI alerts, data consolidation, and email/WhatsApp notifications triggered from Google Sheets.
 - [WhatsApp Business API (Meta)](https://automateideas.in/whatsapp-business-api): Official Meta-verified WhatsApp Business Platform — transactional messages, OTPs, order updates, chatbots, and CRM/Google Sheets integration, from ₹12,000/year.
 - [WhatsApp Automation (Custom API)](https://automateideas.in/whatsapp-automation-services): High-volume WhatsApp messaging, broadcast campaigns, keyword-based chatbot flows, and Google Sheets/web-app integration, from ₹2,499/year.
+- [Custom Software Development](https://automateideas.in/custom-software-development): Bespoke internal tools, admin panels, dashboards, customer and vendor portals, REST APIs, and database-backed applications for businesses that have outgrown spreadsheets. Quoted per project; source code and data owned by the client.
+- [Website Development](https://automateideas.in/website-development): Business websites, landing pages, and redesigns built on Next.js and React — server-rendered for speed, with schema, sitemaps, security headers, and enquiry forms wired into Sheets or WhatsApp. Quoted per project.
 
 ## Company pages
 

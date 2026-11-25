@@ -122,6 +122,11 @@ export const sheetsPage: ContentPageData = {
     "Show us the spreadsheet you hate and we'll show you what it looks like automated. [[Book a free audit|https://calendar.app.google/tQGZDNw8JgBJekHeA]].",
   relatedLinks: [
     {
+      title: "Custom Software Development",
+      href: "/custom-software-development",
+      description: "For the point where a spreadsheet stops being the right home.",
+    },
+    {
       title: "Google Apps Script Development",
       href: "/google-apps-script-development",
       description: "The custom code that powers your Sheets automations.",
